@@ -1,0 +1,16 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": ["@sapphire"],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": "latest"
+	},
+	"plugins": ["@typescript-eslint"],
+	"rules": {
+		"@typescript-eslint/no-non-null-assertion": "off",
+		"no-mixed-spaces-and-tabs": "off"
+	}
+}

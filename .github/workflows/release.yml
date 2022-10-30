@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: node
+          bump-patch-for-minor-pre-major: true
+          token: ${{ secrets.RELEASE }}
+          labels: "Pending Release"
+          release-labels: "Released"
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        if: ${{ steps.release.outputs.release_created }}
+      - uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3
+        with:
+          node-version: "18.x"
+          cache: yarn
+          registry-url: https://registry.yarnpkg.com/
+
+        if: ${{ steps.release.outputs.release_created }}
+      - run: yarn --immutable && yarn build
+        if: ${{ steps.release.outputs.release_created }}
+      - run: npm link
+        if: ${{ steps.release.outputs.release_created }}
+      - run: ariaa
+        if: ${{ steps.release.outputs.release_created }}
+      - run: |
+          yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
+          yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
+          yarn npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+        if: ${{ steps.release.outputs.release_created }}

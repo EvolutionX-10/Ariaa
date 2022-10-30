@@ -1,0 +1,6 @@
+name: ariaa
+packagePath: .
+monoRepo: false
+skipChangelog: true
+skipTag: true
+firstRelease: true

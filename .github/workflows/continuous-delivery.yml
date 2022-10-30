@@ -1,0 +1,40 @@
+name: Continuous Delivery
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      prNumber:
+        description: The number of the PR that is being deployed
+        required: true
+      ref:
+        description: The branch that is being deployed. Should be a branch on the given repository
+        required: false
+        default: main
+
+jobs:
+  Publish:
+    name: Publish Dev to npm
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+      - name: Use Node.js v18
+        uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3
+        with:
+          node-version: "18.x"
+          cache: yarn
+          registry-url: https://registry.yarnpkg.com/
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Bump Version & Publish
+        run: |
+          # Resolve the tag to be used. "dev" for push events, "pr-{prNumber}" for dispatch events.
+          TAG=$([[ ${{ github.event_name }} == 'push' ]] && echo 'dev' || echo 'pr-${{ github.event.inputs.prNumber }}')
+          yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
+          yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
+          yarn bump --preid "${TAG}.$(git rev-parse --verify --short HEAD)"
+          yarn npm publish --tag ${TAG}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
