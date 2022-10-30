@@ -2,7 +2,7 @@ import { logger } from '#lib/structures';
 import { Presets, SingleBar } from 'cli-progress';
 import { blueBright, greenBright, red, underline, yellowBright } from 'colorette';
 import ffmpeg from 'fluent-ffmpeg';
-import ffmpegPath from 'ffmpeg-static';
+import { path } from '@ffmpeg-installer/ffmpeg';
 import { writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -26,7 +26,7 @@ export function map(videos: Video[]) {
 }
 
 export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadata?: SpotifySong) {
-	ffmpeg.setFfmpegPath(ffmpegPath!);
+	ffmpeg.setFfmpegPath(path);
 
 	const { bitrate, format } = getConfig(true);
 	overrideformat ??= format;
