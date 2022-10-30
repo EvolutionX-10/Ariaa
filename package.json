@@ -97,5 +97,8 @@
 		"ytdl-core": "4.11.2",
 		"ytsr": "3.8.0"
 	},
-	"prettier": "@sapphire/prettier-config"
+	"prettier": "@sapphire/prettier-config",
+	"resolutions": {
+		"superagent": "8.0.3"
+	}
 }
