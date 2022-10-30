@@ -1,9 +1,0 @@
-.husky/
-src/
-tsup.config.ts
-tsconfig.base.json
-tsconfig.eslint.json
-.prettierrc
-.prettierignore
-.npm-deprecate.yml
-.eslintrc.json
