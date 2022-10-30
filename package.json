@@ -88,7 +88,6 @@
 		"cli-progress": "3.11.2",
 		"colorette": "2.0.19",
 		"commander": "9.4.1",
-		"ffmpeg-static": "5.1.0",
 		"fluent-ffmpeg": "2.1.2",
 		"inquirer": "9.1.4",
 		"inquirer-select-directory": "1.2.0",
