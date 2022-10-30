@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/EvolutionX-10/Ariaa/compare/v1.0.4...v1.0.5) (2022-10-30)
+
+
+### Bug Fixes
+
+* sanitize file names ([5bc6749](https://github.com/EvolutionX-10/Ariaa/commit/5bc6749318c4bdc97deade6d757ab895f70781bd))
+
 ## [1.0.4](https://github.com/EvolutionX-10/Ariaa/compare/v1.0.3...v1.0.4) (2022-10-30)
 
 
