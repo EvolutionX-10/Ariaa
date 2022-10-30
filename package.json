@@ -1,6 +1,6 @@
 {
 	"name": "ariaa",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "A CLI for music lovers",
 	"main": "dist/index.js",
 	"type": "module",
