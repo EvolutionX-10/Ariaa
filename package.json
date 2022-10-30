@@ -33,6 +33,13 @@
 		"youtube",
 		"song"
 	],
+	"files": [
+		"dist",
+		"!dist/*.tsbuildinfo",
+		"!dist/**/*.js.map",
+		"!dist/**/*.d.ts",
+		"!dist/**/*.d.ts.map"
+	],
 	"author": "EvolutionX-10",
 	"license": "Apache-2.0",
 	"repository": {
