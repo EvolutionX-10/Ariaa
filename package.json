@@ -92,6 +92,7 @@
 		"fluent-ffmpeg": "2.1.2",
 		"inquirer": "9.1.4",
 		"inquirer-select-directory": "1.2.0",
+		"sanitize-filename": "^1.6.3",
 		"spotify-web-api-node": "5.0.2",
 		"undici": "5.12.0",
 		"ytdl-core": "4.11.2",

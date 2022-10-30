@@ -9,6 +9,7 @@ import { join } from 'node:path';
 import { request } from 'undici';
 import ytdl from 'ytdl-core';
 import ytsr, { Video } from 'ytsr';
+import sanitize from 'sanitize-filename';
 import { getConfig, musicPath } from './config.js';
 import type { SpotifySong } from './metadata.js';
 
@@ -103,7 +104,7 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 		);
 	}
 
-	file.save(musicPath(name, overrideformat));
+	file.save(musicPath(sanitize(name), overrideformat));
 }
 
 export function parse(t: string) {
