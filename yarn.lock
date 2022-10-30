@@ -1004,7 +1004,7 @@ __metadata:
     husky: 8.0.1
     inquirer: 9.1.4
     inquirer-select-directory: 1.2.0
-    pinst: ^3.0.0
+    pinst: 3.0.0
     prettier: 2.7.1
     pretty-quick: 3.1.3
     spotify-web-api-node: 5.0.2
@@ -4013,7 +4013,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinst@npm:^3.0.0":
+"pinst@npm:3.0.0":
   version: 3.0.0
   resolution: "pinst@npm:3.0.0"
   bin:
