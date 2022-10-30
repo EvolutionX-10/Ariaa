@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/EvolutionX-10/Ariaa/compare/v1.0.3...v1.0.4) (2022-10-30)
+
+
+### Bug Fixes
+
+* ffmpeg errors ([2aa7b57](https://github.com/EvolutionX-10/Ariaa/commit/2aa7b577b5f4df062dd3e955c9e82ce5161e714c))
+
 ## [1.0.3](https://github.com/EvolutionX-10/Ariaa/compare/v1.0.2...v1.0.3) (2022-10-30)
 
 
