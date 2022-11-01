@@ -3,15 +3,17 @@
 	"extends": ["config:base", "helpers:pinGitHubActionDigests"],
 	"labels": ["Type: Dependencies"],
 	"automergeType": "pr",
+	"automerge": true,
 	"automergeStrategy": "squash",
 	"major": {
 		"dependencyDashboardApproval": true,
 		"addLabels": ["Dependencies: Major"],
-		"reviewers": ["EvolutionX-10"]
+		"reviewers": ["EvolutionX-10"],
+		"automerge": false
 	},
 	"minor": {
 		"addLabels": ["Dependencies: Minor"],
-		"automerge": false
+		"automerge": true
 	},
 	"patch": {
 		"addLabels": ["Dependencies: Patch"],
