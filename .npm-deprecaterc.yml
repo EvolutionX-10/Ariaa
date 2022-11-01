@@ -1,0 +1,4 @@
+name: '*next*'
+package:
+  - 'ariaa'
+message: This version has been automatically deprecated. Please use latest version.
