@@ -11,12 +11,15 @@ import ytdl from 'ytdl-core';
 import ytsr, { Video } from 'ytsr';
 import sanitize from 'sanitize-filename';
 import { getConfig, musicPath } from './config.js';
-import type { SpotifySong } from './metadata.js';
 
 export async function search(song: string) {
 	const results = await ytsr(song, { limit: 30 });
 	results.items.filter((i) => i.type === 'video');
-	return results.items.map((r) => r as Video).filter((r) => r.url && r.title && r.duration && parse(r.duration) < 600);
+
+	return results.items
+		.map((r) => r as Video)
+		.filter((r) => r.url && r.title && r.duration && r.views)
+		.sort((a, b) => b.views! - a.views!);
 }
 
 export function map(videos: Video[]) {
@@ -26,7 +29,7 @@ export function map(videos: Video[]) {
 	}));
 }
 
-export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadata?: SpotifySong) {
+export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadata?: SpotifyTrack.Item) {
 	ffmpeg.setFfmpegPath(path);
 
 	const { bitrate, format } = getConfig(true);

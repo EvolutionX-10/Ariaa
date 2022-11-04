@@ -4,13 +4,15 @@ import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import path from 'node:path';
 
-export function getConfig<T extends boolean = false>(json?: T): If<T, AriaaConfig, string> {
+export function getConfig(json: true): AriaaConfig;
+export function getConfig(json?: false): string;
+export function getConfig(json = false): AriaaConfig | string {
 	try {
 		const config = readFileSync(path.join(homedir(), CONFIG_FILE), {
 			encoding: 'utf-8'
 		});
 
-		return json ? JSON.parse(config) : (config as If<T, AriaaConfig, string>);
+		return json ? JSON.parse(config) : config;
 	} catch {
 		throw new Error(`Config Not found! Please run ${underline(magenta(`ariaa setup`))}`);
 	}
@@ -35,5 +37,3 @@ export interface AriaaConfig {
 	bitrate: 128 | 320;
 	format: 'mp3' | 'flac';
 }
-
-type If<T extends boolean, A, B> = T extends true ? A : T extends false ? B : A | B;

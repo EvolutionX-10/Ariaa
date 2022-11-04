@@ -1,5 +1,5 @@
 import { Command, logger } from '#lib/structures';
-import { getConfig, getMetadata, map, save, search, SpotifySong } from '#utils';
+import { getConfig, getMetadata, map, save, search } from '#utils';
 import inquirer from 'inquirer';
 
 export default new Command({
@@ -57,7 +57,7 @@ export default new Command({
 
 		const song = searches.find((v) => v.url === url)!;
 
-		let metadata: SpotifySong | undefined;
+		let metadata: SpotifyTrack.Item | undefined;
 
 		const { clientId, clientSecret } = getConfig(true);
 		if (clientId.length && clientSecret.length && !flags.raw) {
@@ -65,7 +65,7 @@ export default new Command({
 			metadata = await getMetadata(songName, song);
 		}
 		logger.debug('Proceeding to download...');
-		const { verbose } = flags;
+
 		await save(song, format, metadata);
 	}
 });
