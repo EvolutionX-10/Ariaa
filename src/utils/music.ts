@@ -20,10 +20,7 @@ export async function search(song: string, provider: 'spotify' | 'youtube' = 'yo
 		const results = await ytsr(song, { limit: 30 });
 		results.items.filter((i) => i.type === 'video');
 
-		return results.items
-			.map((r) => r as Video)
-			.filter((r) => r.url && r.title && r.duration && r.views)
-			.sort((a, b) => b.views! - a.views!);
+		return results.items.map((r) => r as Video).filter((r) => r.url && r.title && r.duration && r.views);
 	}
 	return (await searchSpotify(song, 'track', 10)).tracks.items;
 }
