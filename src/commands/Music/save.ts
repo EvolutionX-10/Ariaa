@@ -1,5 +1,6 @@
 import { Command, logger } from '#lib/structures';
 import { getClosestYoutubeTrack, getConfig, getMetadata, map, save, search } from '#utils';
+import { greenBright, redBright } from 'colorette';
 import inquirer from 'inquirer';
 import type { Video } from 'ytsr';
 
@@ -35,10 +36,12 @@ export default new Command({
 		const format = flags.mp3 ? 'mp3' : flags.flac ? 'flac' : undefined;
 		const provider = flags.yt ? 'youtube' : flags.spotify ? 'spotify' : preference;
 
+		logger.debug(`Using ${provider === 'spotify' ? greenBright('Spotify') : redBright('YouTube')} as the provider`);
+
 		let songName: string;
 		if (args) songName = args;
 		else {
-			logger.debug('Song name was not provided');
+			logger.debug('Song name was not provided!');
 			songName = (
 				await inquirer.prompt([
 					{
