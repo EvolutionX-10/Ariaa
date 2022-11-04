@@ -1,15 +1,15 @@
 import { logger } from '#lib/structures';
+import { path } from '@ffmpeg-installer/ffmpeg';
 import { Presets, SingleBar } from 'cli-progress';
 import { blueBright, greenBright, red, underline, yellowBright } from 'colorette';
 import ffmpeg from 'fluent-ffmpeg';
-import { path } from '@ffmpeg-installer/ffmpeg';
 import { writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import sanitize from 'sanitize-filename';
 import { request } from 'undici';
 import ytdl from 'ytdl-core';
 import ytsr, { Video } from 'ytsr';
-import sanitize from 'sanitize-filename';
 import { getConfig, musicPath } from './config.js';
 
 export async function search(song: string) {

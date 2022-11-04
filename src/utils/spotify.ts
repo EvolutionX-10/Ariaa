@@ -1,4 +1,4 @@
-import { request, fetch } from 'undici';
+import { fetch, request } from 'undici';
 import type { HttpMethod } from 'undici/types/dispatcher.js';
 import { getConfig } from './config.js';
 const BASE = `https://api.spotify.com/v1`;
