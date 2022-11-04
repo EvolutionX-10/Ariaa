@@ -1,4 +1,5 @@
 import { CONFIG_FILE } from '#constants';
+import { logger } from '#lib/structures';
 import { magenta, underline } from 'colorette';
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { homedir } from 'node:os';
@@ -24,7 +25,7 @@ export function musicPath(title: string, format: string) {
 
 	const music = path.join(downloadPath, 'Music');
 	if (!existsSync(music)) {
-		console.log('Music folder does not exist, making one...');
+		logger.debug('Music folder does not exist, making one...');
 		mkdirSync(music);
 	}
 	return path.join(music, `${title}.${format}`);
