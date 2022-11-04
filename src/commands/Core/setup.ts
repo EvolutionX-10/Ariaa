@@ -10,12 +10,13 @@ import path from 'path';
 export default new Command({
 	flags: [
 		{ shortFlags: 'y', description: 'Yes!' },
-		{ longFlags: 'show', description: 'See current config' }
+		{ longFlags: 'show', description: 'See current config' },
+		{ longFlags: 'update', description: 'Update current config' }
 	],
 	description: 'Setup Ariaa!',
 	async run(options) {
 		if (options.show) {
-			const config = getConfig();
+			const config = getConfig(true);
 			if (config) console.log(config);
 			process.exit(0);
 		}
@@ -32,11 +33,10 @@ export default new Command({
 				bitrate: 320
 			};
 		} else {
-			answers = (await inquirer.prompt(questions)) as AriaaConfig;
+			answers = (await inquirer.prompt(questions, options.update ? getConfig(true) : undefined)) as AriaaConfig;
 
-			if (answers.format === 'mp3') {
-				const bit = await inquirer.prompt(bitrateQ);
-				answers.bitrate = bit.bitrate;
+			if (answers.format === 'mp3' && options.update) {
+				answers.bitrate = (await inquirer.prompt(bitrateQ)).bitrate;
 			}
 		}
 
