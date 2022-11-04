@@ -24,11 +24,12 @@ export default new Command({
 
 		if (options.y) {
 			answers = {
-				downloadPath: process.cwd(),
-				bitrate: 320,
+				downloadPath: homedir(),
 				clientId: '',
 				clientSecret: '',
-				format: 'mp3'
+				preference: 'youtube',
+				format: 'mp3',
+				bitrate: 320
 			};
 		} else {
 			answers = (await inquirer.prompt(questions)) as AriaaConfig;

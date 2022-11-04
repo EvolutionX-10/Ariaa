@@ -36,4 +36,5 @@ export interface AriaaConfig {
 	clientSecret: string;
 	bitrate: 128 | 320;
 	format: 'mp3' | 'flac';
+	preference: 'spotify' | 'youtube';
 }

@@ -1,6 +1,7 @@
 import { Command, logger } from '#lib/structures';
-import { getConfig, getMetadata, map, save, search } from '#utils';
+import { getClosestYoutubeTrack, getConfig, getMetadata, map, save, search } from '#utils';
 import inquirer from 'inquirer';
+import type { Video } from 'ytsr';
 
 export default new Command({
 	description: 'Save songs',
@@ -16,12 +17,23 @@ export default new Command({
 		{
 			longFlags: 'raw',
 			description: 'Do not add metadata in the song'
+		},
+		{
+			longFlags: 'spotify',
+			description: 'Use Spotify to search'
+		},
+		{
+			longFlags: 'yt',
+			description: 'Use YouTube to search'
 		}
 	],
 	args: [{ name: 'song', description: 'Search query (OPTIONAL)' }],
 
 	async run(args, flags) {
+		const { clientId, clientSecret, preference } = getConfig(true);
+
 		const format = flags.mp3 ? 'mp3' : flags.flac ? 'flac' : undefined;
+		const provider = flags.yt ? 'youtube' : flags.spotify ? 'spotify' : preference;
 
 		let songName: string;
 		if (args) songName = args;
@@ -40,7 +52,13 @@ export default new Command({
 
 		if (!songName.length) throw new Error('Song Name is mandatory');
 
-		const searches = await search(songName);
+		let ytSearch: Video[] | undefined;
+		let spotifySearch: SpotifyTrack.Item[] | undefined;
+		if (provider === 'youtube') {
+			ytSearch = await search(songName, provider);
+		} else spotifySearch = await search(songName, provider);
+
+		const searches = (ytSearch ?? spotifySearch)!;
 		logger.debug(`Found ${searches.length} songs!`);
 
 		if (!searches.length) throw new Error(`No results found, please input better search term!`);
@@ -55,17 +73,15 @@ export default new Command({
 			}
 		]);
 
-		const song = searches.find((v) => v.url === url)!;
+		let metadata = spotifySearch?.find((r) => r.id === url);
+		const ytsong = ytSearch?.find((r) => r.url === url) ?? (await getClosestYoutubeTrack(metadata!));
 
-		let metadata: SpotifyTrack.Item | undefined;
-
-		const { clientId, clientSecret } = getConfig(true);
-		if (clientId.length && clientSecret.length && !flags.raw) {
+		if (clientId.length && clientSecret.length && !flags.raw && provider === 'youtube') {
 			logger.debug('Fetching Spotify details');
-			metadata = await getMetadata(songName, song);
+			metadata = await getMetadata(songName, ytsong!);
 		}
 		logger.debug('Proceeding to download...');
 
-		await save(song, format, metadata);
+		await save(ytsong, format, metadata);
 	}
 });

@@ -13,15 +13,31 @@ export const questions: QuestionCollection = [
 	},
 	{
 		name: 'clientId',
-		message: 'Enter Spotify Client ID',
+		message: 'Enter Spotify Client ID [optional]',
 		type: 'input',
 		default: ''
 	},
 	{
 		name: 'clientSecret',
-		message: 'Enter Spotify Client Secret',
+		message: 'Enter Spotify Client Secret [optional]',
 		type: 'password',
 		default: ''
+	},
+	{
+		name: 'preference',
+		message: 'What song provider would you like to prefer?',
+		type: 'list',
+		choices: [
+			{
+				name: 'YouTube',
+				value: 'youtube',
+				checked: true
+			},
+			{
+				name: 'Spotify [Needs Client Credentials]',
+				value: 'spotify'
+			}
+		]
 	},
 	{
 		name: 'format',

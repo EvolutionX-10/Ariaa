@@ -1,7 +1,7 @@
 import { logger } from '#lib/structures';
 import { path } from '@ffmpeg-installer/ffmpeg';
 import { Presets, SingleBar } from 'cli-progress';
-import { blueBright, greenBright, red, underline, yellowBright } from 'colorette';
+import { blue, blueBright, greenBright, red, underline, yellowBright } from 'colorette';
 import ffmpeg from 'fluent-ffmpeg';
 import { writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -11,21 +11,33 @@ import { request } from 'undici';
 import ytdl from 'ytdl-core';
 import ytsr, { Video } from 'ytsr';
 import { getConfig, musicPath } from './config.js';
+import { searchSpotify } from './spotify.js';
 
-export async function search(song: string) {
-	const results = await ytsr(song, { limit: 30 });
-	results.items.filter((i) => i.type === 'video');
+export async function search(song: string, provider: 'youtube'): Promise<Video[]>;
+export async function search(song: string, provider: 'spotify'): Promise<SpotifyTrack.Item[]>;
+export async function search(song: string, provider: 'spotify' | 'youtube' = 'youtube') {
+	if (provider === 'youtube') {
+		const results = await ytsr(song, { limit: 30 });
+		results.items.filter((i) => i.type === 'video');
 
-	return results.items
-		.map((r) => r as Video)
-		.filter((r) => r.url && r.title && r.duration && r.views)
-		.sort((a, b) => b.views! - a.views!);
+		return results.items
+			.map((r) => r as Video)
+			.filter((r) => r.url && r.title && r.duration && r.views)
+			.sort((a, b) => b.views! - a.views!);
+	}
+	return (await searchSpotify(song, 'track', 10)).tracks.items;
 }
 
-export function map(videos: Video[]) {
-	return videos.map((video) => ({
-		name: video.title.concat(`${video.duration ? ` ${red(underline(video.duration))}` : ''}`),
-		value: video.url
+export function map(videos: Video[] | SpotifyTrack.Item[]) {
+	if ((videos[0] as Video).title) {
+		return (videos as Video[]).map((video) => ({
+			name: video.title.concat(`${video.duration ? ` ${red(underline(video.duration))}` : ''}`),
+			value: video.url
+		}));
+	}
+	return (videos as SpotifyTrack.Item[]).map((v) => ({
+		name: `${v.name} [${blue(v.artists.map((a) => a.name).join(', '))}] ${red(underline(parseReverse(v.duration_ms)))}`,
+		value: v.id
 	}));
 }
 
@@ -117,6 +129,10 @@ export function parse(t: string) {
 		return Number(times[0]) * 60 * 60 + Number(times[1]) * 60 + Number(times[2]);
 	}
 	return Number(times[0]) * 60 + Number(times[1]);
+}
+
+export function parseReverse(ms: number) {
+	return new Date(ms).toISOString().slice(14, 19);
 }
 
 export function filter(s: string) {
