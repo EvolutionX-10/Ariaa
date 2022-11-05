@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/EvolutionX-10/Ariaa/compare/v1.0.5...v1.1.0) (2022-11-05)
+
+
+### Features
+
+* ability to update config ([a5bd0dd](https://github.com/EvolutionX-10/Ariaa/commit/a5bd0dd6c58632d1f65023dcd9759b2b5a93fa76))
+* rename save to song ([060de3d](https://github.com/EvolutionX-10/Ariaa/commit/060de3de366470c35d274662958cf620d23b1bb3))
+* **spotify:** option to use spotify search ([d4ed917](https://github.com/EvolutionX-10/Ariaa/commit/d4ed9179f523d06031cdc9364fe6ba89815c6cc8))
+
+
+### Performance Improvements
+
+* remove spotify-web-api-node ([0ade8d9](https://github.com/EvolutionX-10/Ariaa/commit/0ade8d90c0b4c60afab36f2d3df22de17721a95a))
+
 ## [1.0.5](https://github.com/EvolutionX-10/Ariaa/compare/v1.0.4...v1.0.5) (2022-10-30)
 
 
