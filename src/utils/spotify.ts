@@ -61,6 +61,12 @@ export async function getArtist(id: string) {
 	return res.json() as Promise<SpotifyArtist.Item>;
 }
 
+export async function getAlbum(id: string) {
+	const res = await fetch(`${BASE}/albums/${id}`, { headers: await headers() });
+
+	return res.json() as Promise<Album.RootObject>;
+}
+
 export async function getClosestYoutubeTrack(song: SpotifyTrack.Item) {
 	const results = await ytsr(`${song.name} ${song.artists[0].name}`, { limit: 10 });
 

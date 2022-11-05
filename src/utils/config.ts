@@ -19,7 +19,7 @@ export function getConfig(json = false): AriaaConfig | string {
 	}
 }
 
-export function musicPath(title: string, format: string) {
+export function musicPath(title: string, format: string, album?: string) {
 	const { downloadPath } = getConfig(true);
 	if (!existsSync(downloadPath)) throw new Error('Download path does not exist!');
 
@@ -27,6 +27,14 @@ export function musicPath(title: string, format: string) {
 	if (!existsSync(music)) {
 		logger.debug('Music folder does not exist, making one...');
 		mkdirSync(music);
+	}
+	if (album) {
+		const albumPath = path.join(music, album);
+		if (!existsSync(albumPath)) {
+			logger.debug('Music folder does not exist, making one...');
+			mkdirSync(albumPath);
+		}
+		return path.join(albumPath, `${title}.${format}`);
 	}
 	return path.join(music, `${title}.${format}`);
 }

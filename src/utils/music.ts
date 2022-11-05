@@ -44,7 +44,7 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 	const { bitrate, format } = getConfig(true);
 	overrideformat ??= format;
 
-	logger.debug(`Saving in ${underline(format)} format`);
+	logger.debug(`Saving in ${underline(overrideformat)} format`);
 
 	const bar = new SingleBar(
 		{
@@ -66,7 +66,7 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 	let tmpImg: string | null = null;
 
 	if (coverUrl) {
-		const coverStream = await request(coverUrl).then((res) => res.body.arrayBuffer());
+		const coverStream = await (await request(coverUrl)).body.arrayBuffer();
 
 		tmpImg = join(tmpdir(), `${(Math.random() + 1).toString(36)}.jpg`);
 		await writeFile(tmpImg, Buffer.from(coverStream));
