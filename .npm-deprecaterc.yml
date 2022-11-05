@@ -1,4 +1,4 @@
-name: '*next*'
+name: '*dev*'
 package:
   - 'ariaa'
 message: This version has been automatically deprecated. Please use latest version.
