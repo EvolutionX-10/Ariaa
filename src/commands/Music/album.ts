@@ -1,6 +1,6 @@
 import { Command, logger } from '#lib/structures';
 import { getAlbum, getClosestYoutubeTrack, getConfig, saveAlbum, searchSpotify } from '#utils';
-import { blue, blueBright, cyanBright, greenBright, redBright, underline } from 'colorette';
+import { blue, blueBright, greenBright, redBright } from 'colorette';
 import inquirer from 'inquirer';
 
 export default new Command({

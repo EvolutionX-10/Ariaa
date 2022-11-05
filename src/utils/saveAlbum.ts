@@ -1,20 +1,20 @@
-import { MultiBar, Presets, SingleBar } from 'cli-progress';
-import { blueBright, cyanBright, greenBright, underline, yellowBright } from 'colorette';
+import { logger } from '#lib/structures';
+import { path } from '@ffmpeg-installer/ffmpeg';
+import { MultiBar, Presets } from 'cli-progress';
+import { blueBright, cyanBright, greenBright, underline } from 'colorette';
+import ffmpeg from 'fluent-ffmpeg';
 import { writeFile } from 'node:fs/promises';
 import { tmpdir } from 'os';
 import { join } from 'path';
-import { request } from 'undici';
-import { path } from '@ffmpeg-installer/ffmpeg';
-import ffmpeg from 'fluent-ffmpeg';
-import { getConfig, musicPath } from './config.js';
-import { logger } from '#lib/structures';
-import type { Video } from 'ytsr';
-import { filter, parse } from './music.js';
-import ytdl from 'ytdl-core';
 import sanitize from 'sanitize-filename';
-import { getGenre } from './genre.js';
-import { getArtist } from './spotify.js';
+import { request } from 'undici';
+import ytdl from 'ytdl-core';
+import type { Video } from 'ytsr';
+import { getConfig, musicPath } from './config.js';
 import { wait } from './functions.js';
+import { getGenre } from './genre.js';
+import { filter, parse } from './music.js';
+import { getArtist } from './spotify.js';
 
 export async function saveAlbum(videos: Video[], album: Album.RootObject, overrideformat?: 'mp3' | 'flac') {
 	ffmpeg.setFfmpegPath(path);
