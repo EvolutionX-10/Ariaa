@@ -41,7 +41,7 @@ export async function saveAlbum(videos: Video[], album: Album.RootObject, overri
 	const genre = getGenre((await getArtist(album.artists[0].id)).genres);
 	let index = 1;
 	for (const [i, vid] of videos.entries()) {
-		await wait(500); // TODO Update the value depending on track amount
+		await wait(1000); // TODO Update the value depending on track amount
 		const metadata = album.tracks.items[i];
 		const bar = bars.create(parse(vid.duration!), 0);
 		const stream = ytdl(vid.url, { quality: 'highestaudio', highWaterMark: 1 << 25 });
