@@ -503,10 +503,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:18.11.11":
+"@types/node@npm:*":
   version: 18.11.11
   resolution: "@types/node@npm:18.11.11"
   checksum: c4b1176a8f1714a3ee3fc2a5e1d568b0cd50209000282db5c68154b3c975952928dbb834ef3a0ce55bd7b345ae29f2cbf4a34635a070294d135a24254231386a
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:18.11.13":
+  version: 18.11.13
+  resolution: "@types/node@npm:18.11.13"
+  checksum: b0c1aa3bd2f5df8240e61096a49d6d4be600109b824d23408ec4ba1ec057dc0c60588e09f73b8a60455ad26d367e9c5562fad8403099f885cbc7b4cace83ec4c
   languageName: node
   linkType: hard
 
@@ -863,7 +870,7 @@ __metadata:
     "@types/cli-progress": 3.11.0
     "@types/fluent-ffmpeg": 2.1.20
     "@types/inquirer": 9.0.3
-    "@types/node": 18.11.11
+    "@types/node": 18.11.13
     "@typescript-eslint/eslint-plugin": 5.45.1
     "@typescript-eslint/parser": 5.45.1
     cli-progress: 3.11.2
