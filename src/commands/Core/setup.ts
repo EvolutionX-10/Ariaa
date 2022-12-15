@@ -1,5 +1,5 @@
 import { CONFIG_FILE } from '#constants';
-import { bitrateQ, questions } from '#lib/prompts';
+import { questions } from '#lib/prompts';
 import { Command, logger } from '#lib/structures';
 import { AriaaConfig, getConfig } from '#utils';
 import { writeFileSync } from 'fs';
@@ -16,8 +16,7 @@ export default new Command({
 	description: 'Setup Ariaa!',
 	async run(options) {
 		if (options.show) {
-			const config = getConfig(true);
-			if (config) console.log(config);
+			console.log(getConfig(true));
 			process.exit(0);
 		}
 
@@ -34,10 +33,6 @@ export default new Command({
 			};
 		} else {
 			answers = (await inquirer.prompt(questions, options.update ? getConfig(true) : undefined)) as AriaaConfig;
-
-			if (answers.format === 'mp3' && options.update) {
-				answers.bitrate = (await inquirer.prompt(bitrateQ)).bitrate;
-			}
 		}
 
 		const file = JSON.stringify(answers, null, 2);

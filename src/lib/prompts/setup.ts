@@ -54,13 +54,10 @@ export const questions: QuestionCollection = [
 				value: 'flac'
 			}
 		]
-	}
-];
-
-export const bitrateQ: QuestionCollection = [
+	},
 	{
 		name: 'bitrate',
-		message: 'What bitrate should be used in songs?',
+		message: 'What bitrate should be used in songs? [for mp3]',
 		type: 'list',
 		choices: [
 			{
