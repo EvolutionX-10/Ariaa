@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/EvolutionX-10/Ariaa/compare/v1.1.0...v1.2.0) (2022-12-28)
+
+
+### Features
+
+* ability to save albums! ([1396405](https://github.com/EvolutionX-10/Ariaa/commit/139640502dcc60dc2100732a465e9e8d5debddf0))
+
+
+### Bug Fixes
+
+* the bitrate is now being detected and config is fixed ([39257d7](https://github.com/EvolutionX-10/Ariaa/commit/39257d787ad502f61366d916a655df568cf2680c))
+
 ## [1.1.0](https://github.com/EvolutionX-10/Ariaa/compare/v1.0.5...v1.1.0) (2022-11-05)
 
 
