@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/EvolutionX-10/Ariaa/compare/v1.2.0...v1.2.1) (2023-01-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency commander to v9.5.0 ([2c6678f](https://github.com/EvolutionX-10/Ariaa/commit/2c6678fa5c9f60d900b6b83556a0ac2d571e8ea3))
+
 ## [1.2.0](https://github.com/EvolutionX-10/Ariaa/compare/v1.1.0...v1.2.0) (2022-12-28)
 
 
