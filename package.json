@@ -85,7 +85,7 @@
 	},
 	"dependencies": {
 		"@ffmpeg-installer/ffmpeg": "^1.1.0",
-		"cli-progress": "3.11.2",
+		"cli-progress": "3.12.0",
 		"colorette": "2.0.19",
 		"commander": "9.5.0",
 		"fluent-ffmpeg": "2.1.2",

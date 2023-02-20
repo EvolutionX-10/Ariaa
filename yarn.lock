@@ -1142,7 +1142,7 @@ __metadata:
     "@types/node": 18.14.0
     "@typescript-eslint/eslint-plugin": 5.52.0
     "@typescript-eslint/parser": 5.52.0
-    cli-progress: 3.11.2
+    cli-progress: 3.12.0
     colorette: 2.0.19
     commander: 9.5.0
     eslint: 8.34.0
@@ -1525,12 +1525,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-progress@npm:3.11.2":
-  version: 3.11.2
-  resolution: "cli-progress@npm:3.11.2"
+"cli-progress@npm:3.12.0":
+  version: 3.12.0
+  resolution: "cli-progress@npm:3.12.0"
   dependencies:
     string-width: ^4.2.3
-  checksum: 147d26b80ceaa24d72f0354d1b58b7f3567b928bf5943be879de31cf16b0a4f1d059984e2e35a664d7d27ae3e7fafd69fd94b35f462c8879caf96d7f31eac442
+  checksum: e8390dc3cdf3c72ecfda0a1e8997bfed63a0d837f97366bbce0ca2ff1b452da386caed007b389f0fe972625037b6c8e7ab087c69d6184cc4dfc8595c4c1d3e6e
   languageName: node
   linkType: hard
 
