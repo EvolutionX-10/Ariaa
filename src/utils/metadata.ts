@@ -1,6 +1,5 @@
-import type { Video } from 'ytsr';
+import type { Video } from 'youtube-sr';
 import { getGenre } from './genre.js';
-import { parse } from './music.js';
 import { getArtist, getAudioFeatures, searchSpotify } from './spotify.js';
 
 export async function getMetadata(song: string, songObj: Video): Promise<SpotifyTrack.Item> {
@@ -15,7 +14,7 @@ export async function getMetadata(song: string, songObj: Video): Promise<Spotify
 }
 
 export function findClosestTrack(songs: SpotifyTrack.Item[], songObj: Video) {
-	const time = parse(songObj.duration!) * 1000;
+	const time = songObj.duration;
 	const times = songs.map((s) => s.duration_ms);
 
 	const closest = times.reduce((prev, curr) => (Math.abs(curr - time) < Math.abs(prev - time) ? curr : prev));

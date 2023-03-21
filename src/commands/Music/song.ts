@@ -1,8 +1,8 @@
 import { Command, logger } from '#lib/structures';
 import { getClosestYoutubeTrack, getConfig, getMetadata, map, save, search } from '#utils';
-import { greenBright, redBright } from 'colorette';
+import { blueBright, greenBright, redBright, underline } from 'colorette';
 import inquirer from 'inquirer';
-import type { Video } from 'ytsr';
+import type { Video } from 'youtube-sr';
 
 export default new Command({
 	description: 'Save songs',
@@ -78,7 +78,7 @@ export default new Command({
 
 		let metadata = spotifySearch?.find((r) => r.id === url);
 		const ytsong = ytSearch?.find((r) => r.url === url) ?? (await getClosestYoutubeTrack(metadata!));
-
+		logger.debug(`Found ${underline(blueBright(ytsong.title!))}`);
 		if (clientId.length && clientSecret.length && !flags.raw && provider === 'youtube') {
 			logger.debug('Fetching Spotify details');
 			metadata = await getMetadata(songName, ytsong!);
