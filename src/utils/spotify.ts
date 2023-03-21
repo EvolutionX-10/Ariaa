@@ -65,7 +65,7 @@ export async function getAlbum(id: string) {
 }
 
 export async function getClosestYoutubeTrack(song: SpotifyTrack.Item): Promise<Video> {
-	const results = await YouTube.search(`${song.name} ${song.artists[0].name} lyrics`, { limit: 10, type: 'video' });
+	const results = await YouTube.search(`${song.name} ${song.artists[0].name} lyrics`, { limit: 20, type: 'video' });
 
 	const videos = results.filter(
 		(s) => s.duration && s.title && song.name.toLowerCase().includes('remix') === s.title!.toLowerCase().includes('remix')
