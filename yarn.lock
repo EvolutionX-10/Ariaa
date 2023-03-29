@@ -1064,7 +1064,7 @@ __metadata:
     typescript: 4.9.5
     undici: 5.12.0
     ytdl-core: 4.11.2
-    ytsr: 3.8.0
+    ytsr: 3.8.1
   bin:
     aria: ./dist/index.js
     ariaa: ./dist/index.js
@@ -5033,11 +5033,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ytsr@npm:3.8.0":
-  version: 3.8.0
-  resolution: "ytsr@npm:3.8.0"
+"ytsr@npm:3.8.1":
+  version: 3.8.1
+  resolution: "ytsr@npm:3.8.1"
   dependencies:
     miniget: ^4.2.2
-  checksum: 389ffed01df484e15ea53ebd0700c5c56030bc208e6e7b0e882f4a6d3568ccb4a339d9f04d4634ce21eba328cd277d0ae3b1904a0a129be0ac9ce0a5303bd0d2
+  checksum: 5b199ff5766da44e80c2d589349f833f584b10d77af997a48695c34bf0e18e38974c66c4e8058652f9743454838984d030a7df0c622c1b5d1a7fb4d119b6d86e
   languageName: node
   linkType: hard
