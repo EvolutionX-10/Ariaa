@@ -1065,7 +1065,7 @@ __metadata:
     typescript: 4.9.5
     undici: 5.21.0
     youtube-sr: 4.3.4
-    ytdl-core: 4.11.2
+    ytdl-core: 4.11.3
   bin:
     aria: ./dist/index.js
     ariaa: ./dist/index.js
@@ -5117,13 +5117,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ytdl-core@npm:4.11.2":
-  version: 4.11.2
-  resolution: "ytdl-core@npm:4.11.2"
+"ytdl-core@npm:4.11.3":
+  version: 4.11.3
+  resolution: "ytdl-core@npm:4.11.3"
   dependencies:
     m3u8stream: ^0.8.6
     miniget: ^4.2.2
     sax: ^1.1.3
-  checksum: 57df38b5b1e4955db0e0c0be8d185f34de9eaee102ad1281d69de91628230cc84e8d46d278409eafa68c4aab4085a0f9fe8de30e9ea8644e011e20cae7f37c0e
+  checksum: 433137a17b8727cfaf674e237d753babb13764d04922b490ee4c5a03b711261fc22b559adc39a2dc4856886c120d8730d2992f922b5e818375ea9d87866c5255
   languageName: node
   linkType: hard

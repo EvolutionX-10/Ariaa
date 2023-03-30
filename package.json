@@ -94,7 +94,7 @@
 		"sanitize-filename": "1.6.3",
 		"undici": "5.21.0",
 		"youtube-sr": "4.3.4",
-		"ytdl-core": "4.11.2"
+		"ytdl-core": "4.11.3"
 	},
 	"prettier": "@sapphire/prettier-config"
 }
