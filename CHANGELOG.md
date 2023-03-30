@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.3.0](https://github.com/EvolutionX-10/Ariaa/compare/v1.2.1...v1.3.0) (2023-03-30)
+
+
+### Features
+
+* replace ytsr with youtube-sr ([#162](https://github.com/EvolutionX-10/Ariaa/issues/162)) ([0bd9f9d](https://github.com/EvolutionX-10/Ariaa/commit/0bd9f9d69c2de20442020517b6d24b41d2ba4203))
+
+
+### Bug Fixes
+
+* **deps:** update dependency cli-progress to v3.12.0 ([c58c956](https://github.com/EvolutionX-10/Ariaa/commit/c58c95633a490ae92ed92f15b8c5a407ee3e3c2c))
+* **deps:** update dependency inquirer to v9.1.5 ([15453d9](https://github.com/EvolutionX-10/Ariaa/commit/15453d983f70de2f0df1b4c5dbe51d5cf8e5f16c))
+
 ## [1.2.1](https://github.com/EvolutionX-10/Ariaa/compare/v1.2.0...v1.2.1) (2023-01-13)
 
 
