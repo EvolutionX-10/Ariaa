@@ -9,7 +9,7 @@ import { join } from 'path';
 import sanitize from 'sanitize-filename';
 import { request } from 'undici';
 import ytdl from 'ytdl-core';
-import type { Video } from 'ytsr';
+import type { Video } from 'youtube-sr';
 import { getConfig, musicPath } from './config.js';
 import { wait } from './functions.js';
 import { getGenre } from './genre.js';
@@ -43,7 +43,7 @@ export async function saveAlbum(videos: Video[], album: Album.RootObject, overri
 	for (const [i, vid] of videos.entries()) {
 		await wait(1000); // TODO Update the value depending on track amount
 		const metadata = album.tracks.items[i];
-		const bar = bars.create(parse(vid.duration!), 0);
+		const bar = bars.create(vid.duration / 1000, 0);
 		const stream = ytdl(vid.url, { quality: 'highestaudio', highWaterMark: 1 << 25 });
 
 		ffmpeg(stream, { logger })
@@ -53,7 +53,7 @@ export async function saveAlbum(videos: Video[], album: Album.RootObject, overri
 				bar.update(Math.floor(parse(p.timemark.slice(3))));
 			})
 			.on('end', async () => {
-				bar.update(parse(vid.duration!));
+				bar.update(vid.duration / 1000);
 				bar.stop();
 				await wait(300);
 				if (index === videos.length) {

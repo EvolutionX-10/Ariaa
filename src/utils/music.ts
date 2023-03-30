@@ -9,7 +9,7 @@ import { join } from 'node:path';
 import sanitize from 'sanitize-filename';
 import { request } from 'undici';
 import ytdl from 'ytdl-core';
-import ytsr, { Video } from 'ytsr';
+import { YouTube, Video } from 'youtube-sr';
 import { getConfig, musicPath } from './config.js';
 import { searchSpotify } from './spotify.js';
 
@@ -17,18 +17,17 @@ export async function search(song: string, provider: 'youtube'): Promise<Video[]
 export async function search(song: string, provider: 'spotify'): Promise<SpotifyTrack.Item[]>;
 export async function search(song: string, provider: 'spotify' | 'youtube' = 'youtube') {
 	if (provider === 'youtube') {
-		const results = await ytsr(song, { limit: 30 });
-		results.items.filter((i) => i.type === 'video');
+		const results = await YouTube.search(song, { limit: 30, type: 'video' });
 
-		return results.items.map((r) => r as Video).filter((r) => r.url && r.title && r.duration && r.views);
+		return results.filter((r) => r.url && r.title && r.duration && r.views).sort((a, b) => b.views! - a.views!);
 	}
 	return (await searchSpotify(song, 'track', 10)).tracks.items;
 }
 
 export function map(videos: Video[] | SpotifyTrack.Item[]) {
-	if ((videos[0] as Video).title) {
+	if ('title' in videos[0]) {
 		return (videos as Video[]).map((video) => ({
-			name: video.title.concat(`${video.duration ? ` ${red(underline(video.duration))}` : ''}`),
+			name: video.title!.concat(`${video.duration ? ` ${red(underline(video.durationFormatted))}` : ''}`),
 			value: video.url
 		}));
 	}
@@ -54,7 +53,7 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 		Presets.shades_classic
 	);
 
-	bar.start(parse(song.duration!), 0);
+	bar.start(song.duration / 1000, 0);
 	const start = Date.now();
 
 	const stream = ytdl(song.url, {
@@ -77,14 +76,14 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 	if (metadata?.album.release_date) {
 		date = `${new Date(metadata.album.release_date).getUTCFullYear()}`;
 	}
-	const name = metadata ? filter(metadata.name) : filter(song.title);
+	const name = metadata ? filter(metadata.name) : filter(song.title!);
 	const file = ffmpeg(stream, { logger })
 		.audioBitrate(bitrate)
 		.on('progress', (p) => {
 			bar.update(Math.floor(parse(p.timemark.slice(3))));
 		})
 		.on('end', () => {
-			bar.update(parse(song.duration!));
+			bar.update(song.duration / 1000);
 			bar.stop();
 			logger.debug('Download Complete');
 			logger.info(`Saved ${yellowBright(underline(name))} in ${(Date.now() - start) / 1000}s`);

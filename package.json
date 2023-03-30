@@ -61,7 +61,7 @@
 	},
 	"packageManager": "yarn@3.5.0",
 	"devDependencies": {
-		"@favware/cliff-jumper": "1.10.0",
+		"@favware/cliff-jumper": "2.0.0",
 		"@favware/npm-deprecate": "1.0.7",
 		"@sapphire/eslint-config": "4.3.8",
 		"@sapphire/prettier-config": "1.4.5",
@@ -87,14 +87,14 @@
 		"@ffmpeg-installer/ffmpeg": "^1.1.0",
 		"cli-progress": "3.12.0",
 		"colorette": "2.0.19",
-		"commander": "9.5.0",
+		"commander": "10.0.0",
 		"fluent-ffmpeg": "2.1.2",
 		"inquirer": "9.1.5",
 		"inquirer-select-directory": "1.2.0",
-		"sanitize-filename": "^1.6.3",
-		"undici": "5.12.0",
-		"ytdl-core": "4.11.2",
-		"ytsr": "3.8.0"
+		"sanitize-filename": "1.6.3",
+		"undici": "5.21.0",
+		"youtube-sr": "4.3.4",
+		"ytdl-core": "4.11.2"
 	},
 	"prettier": "@sapphire/prettier-config"
 }

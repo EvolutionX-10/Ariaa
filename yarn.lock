@@ -228,27 +228,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@favware/cliff-jumper@npm:1.10.0":
-  version: 1.10.0
-  resolution: "@favware/cliff-jumper@npm:1.10.0"
+"@favware/cliff-jumper@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@favware/cliff-jumper@npm:2.0.0"
   dependencies:
-    "@favware/conventional-changelog-angular": ^5.0.14
+    "@favware/conventional-changelog-angular": ^5.0.15
     "@sapphire/result": ^2.6.0
     "@sapphire/utilities": 3.11.0
     colorette: ^2.0.19
-    commander: ^9.5.0
+    commander: ^10.0.0
     conventional-recommended-bump: ^6.1.0
+    git-cliff: ^1.1.2
     js-yaml: ^4.1.0
     semver: ^7.3.8
-    typescript: ^4.9.4
+    typescript: ^4.9.5
   bin:
     cj: ./dist/cli.js
     cliff-jumper: ./dist/cli.js
-  checksum: 27cf33b0e363dd5ba1f7087dea167114aa70e95e92592c4b0bc4225ad14c91be17eb9a177c9c2a57d8ffa30cab9df8eb4d09b2a39e139e3bcd25f055e9cc6f06
+  checksum: 432257b5a0ba4dd1b8a784c309d9b48cecb0d8761fe7bc393742a9788c3107c2c5dabfe29ac28ac9ab7ce9bd429a2d5826c837e577813bb5576af3dee7ba04ea
   languageName: node
   linkType: hard
 
-"@favware/conventional-changelog-angular@npm:^5.0.14":
+"@favware/conventional-changelog-angular@npm:^5.0.15":
   version: 5.0.15
   resolution: "@favware/conventional-changelog-angular@npm:5.0.15"
   dependencies:
@@ -675,14 +676,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 18.15.5
-  resolution: "@types/node@npm:18.15.5"
-  checksum: 5fbf3453bd5ce1402bb2964e55d928fc8a8a7de5451b1b0fe66587fecb8a3eb86854ca9cefa5076a5971e2cff00e1773ceeb5d872a54f6c6ddfbbc1064b4e91a
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:18.15.10":
+"@types/node@npm:*, @types/node@npm:18.15.10":
   version: 18.15.10
   resolution: "@types/node@npm:18.15.10"
   checksum: 9aeae0b683eda82892def5315812bdee3f1a28c4898b7e70f8e2514564538b16c4dccbe8339c1266f8fc1d707a48f152689264a854f5ebc2eba5011e793612d9
@@ -1033,7 +1027,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ariaa@workspace:."
   dependencies:
-    "@favware/cliff-jumper": 1.10.0
+    "@favware/cliff-jumper": 2.0.0
     "@favware/npm-deprecate": 1.0.7
     "@ffmpeg-installer/ffmpeg": ^1.1.0
     "@sapphire/eslint-config": 4.3.8
@@ -1048,7 +1042,7 @@ __metadata:
     "@typescript-eslint/parser": 5.56.0
     cli-progress: 3.12.0
     colorette: 2.0.19
-    commander: 9.5.0
+    commander: 10.0.0
     eslint: 8.36.0
     eslint-config-prettier: 8.8.0
     eslint-plugin-prettier: 4.2.1
@@ -1059,12 +1053,12 @@ __metadata:
     pinst: 3.0.0
     prettier: 2.8.6
     pretty-quick: 3.1.3
-    sanitize-filename: ^1.6.3
+    sanitize-filename: 1.6.3
     tsup: 6.7.0
     typescript: 4.9.5
-    undici: 5.12.0
+    undici: 5.21.0
+    youtube-sr: 4.3.4
     ytdl-core: 4.11.2
-    ytsr: 3.8.0
   bin:
     aria: ./dist/index.js
     ariaa: ./dist/index.js
@@ -1514,10 +1508,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:9.5.0, commander@npm:^9.4.1, commander@npm:^9.5.0":
-  version: 9.5.0
-  resolution: "commander@npm:9.5.0"
-  checksum: c7a3e27aa59e913b54a1bafd366b88650bc41d6651f0cbe258d4ff09d43d6a7394232a4dadd0bf518b3e696fdf595db1028a0d82c785b88bd61f8a440cecfade
+"commander@npm:10.0.0, commander@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "commander@npm:10.0.0"
+  checksum: 9f6495651f878213005ac744dd87a85fa3d9f2b8b90d1c19d0866d666bda7f735adfd7c2f10dfff345782e2f80ea258f98bb4efcef58e4e502f25f883940acfd
   languageName: node
   linkType: hard
 
@@ -1525,6 +1519,13 @@ __metadata:
   version: 4.1.1
   resolution: "commander@npm:4.1.1"
   checksum: d7b9913ff92cae20cb577a4ac6fcc121bd6223319e54a40f51a14740a681ad5c574fd29a57da478a5f234a6fa6c52cbf0b7c641353e03c648b1ae85ba670b977
+  languageName: node
+  linkType: hard
+
+"commander@npm:^9.4.1":
+  version: 9.5.0
+  resolution: "commander@npm:9.5.0"
+  checksum: c7a3e27aa59e913b54a1bafd366b88650bc41d6651f0cbe258d4ff09d43d6a7394232a4dadd0bf518b3e696fdf595db1028a0d82c785b88bd61f8a440cecfade
   languageName: node
   linkType: hard
 
@@ -2344,6 +2345,77 @@ __metadata:
   version: 6.0.1
   resolution: "get-stream@npm:6.0.1"
   checksum: e04ecece32c92eebf5b8c940f51468cd53554dcbb0ea725b2748be583c9523d00128137966afce410b9b051eb2ef16d657cd2b120ca8edafcf5a65e81af63cad
+  languageName: node
+  linkType: hard
+
+"git-cliff-darwin-arm64@npm:1.1.2":
+  version: 1.1.2
+  resolution: "git-cliff-darwin-arm64@npm:1.1.2"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"git-cliff-darwin-x64@npm:1.1.2":
+  version: 1.1.2
+  resolution: "git-cliff-darwin-x64@npm:1.1.2"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"git-cliff-linux-arm64@npm:1.1.2":
+  version: 1.1.2
+  resolution: "git-cliff-linux-arm64@npm:1.1.2"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"git-cliff-linux-x64@npm:1.1.2":
+  version: 1.1.2
+  resolution: "git-cliff-linux-x64@npm:1.1.2"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"git-cliff-windows-arm64@npm:1.1.2":
+  version: 1.1.2
+  resolution: "git-cliff-windows-arm64@npm:1.1.2"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"git-cliff-windows-x64@npm:1.1.2":
+  version: 1.1.2
+  resolution: "git-cliff-windows-x64@npm:1.1.2"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"git-cliff@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "git-cliff@npm:1.1.2"
+  dependencies:
+    git-cliff-darwin-arm64: 1.1.2
+    git-cliff-darwin-x64: 1.1.2
+    git-cliff-linux-arm64: 1.1.2
+    git-cliff-linux-x64: 1.1.2
+    git-cliff-windows-arm64: 1.1.2
+    git-cliff-windows-x64: 1.1.2
+  dependenciesMeta:
+    git-cliff-darwin-arm64:
+      optional: true
+    git-cliff-darwin-x64:
+      optional: true
+    git-cliff-linux-arm64:
+      optional: true
+    git-cliff-linux-x64:
+      optional: true
+    git-cliff-windows-arm64:
+      optional: true
+    git-cliff-windows-x64:
+      optional: true
+  bin:
+    git-cliff: lib/index.js
+  checksum: 5098c6bbc7417ed161bf56be428c2d7dbb3b7e215ae42ec127f057b52d2951cad8f6b12b66d462ca4bccbae9908413a69cb73037c4cd1b1e4639175ae742a287
   languageName: node
   linkType: hard
 
@@ -4174,7 +4246,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sanitize-filename@npm:^1.6.3":
+"sanitize-filename@npm:1.6.3":
   version: 1.6.3
   resolution: "sanitize-filename@npm:1.6.3"
   dependencies:
@@ -4787,7 +4859,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.9.5, typescript@npm:^4.6.3, typescript@npm:^4.7.4, typescript@npm:^4.9.4":
+"typescript@npm:4.9.5, typescript@npm:^4.6.3, typescript@npm:^4.7.4, typescript@npm:^4.9.5":
   version: 4.9.5
   resolution: "typescript@npm:4.9.5"
   bin:
@@ -4797,7 +4869,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.9.5#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.7.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.9.5#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.7.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.9.5#~builtin<compat/typescript>":
   version: 4.9.5
   resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"
   bin:
@@ -4807,12 +4879,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:5.12.0":
-  version: 5.12.0
-  resolution: "undici@npm:5.12.0"
+"undici@npm:5.21.0":
+  version: 5.21.0
+  resolution: "undici@npm:5.21.0"
   dependencies:
     busboy: ^1.6.0
-  checksum: fbc227704943c05aa3dc1630695e10309c17d0a535678594d136db107c50593248e9ace70e1ab77496a6c837bf14aa2ab3c501a7a6c45fb6277dbf0846e15ffe
+  checksum: 013d5fd503b631d607942c511c2ab3f3fa78ebcab302acab998b43176b4815503ec15ed9752c5a47918b3bff8a0137768001d3eb57625b2bb6f6d30d8a794d6c
   languageName: node
   linkType: hard
 
@@ -5022,6 +5094,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"youtube-sr@npm:4.3.4":
+  version: 4.3.4
+  resolution: "youtube-sr@npm:4.3.4"
+  checksum: e097f2a82ddc51a580e7b8556aba83968ee580ad29a8d035cbfdc497c4a6f227b3e3ef0bf4648c6edaf25aed18b872a0fad8fda0554d270129f7c5e60e4a01ef
+  languageName: node
+  linkType: hard
+
 "ytdl-core@npm:4.11.2":
   version: 4.11.2
   resolution: "ytdl-core@npm:4.11.2"
@@ -5030,14 +5109,5 @@ __metadata:
     miniget: ^4.2.2
     sax: ^1.1.3
   checksum: 57df38b5b1e4955db0e0c0be8d185f34de9eaee102ad1281d69de91628230cc84e8d46d278409eafa68c4aab4085a0f9fe8de30e9ea8644e011e20cae7f37c0e
-  languageName: node
-  linkType: hard
-
-"ytsr@npm:3.8.0":
-  version: 3.8.0
-  resolution: "ytsr@npm:3.8.0"
-  dependencies:
-    miniget: ^4.2.2
-  checksum: 389ffed01df484e15ea53ebd0700c5c56030bc208e6e7b0e882f4a6d3568ccb4a339d9f04d4634ce21eba328cd277d0ae3b1904a0a129be0ac9ce0a5303bd0d2
   languageName: node
   linkType: hard

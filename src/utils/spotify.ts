@@ -1,24 +1,21 @@
-import { assignKey, getGenre, parse } from '#utils';
+import { assignKey, getGenre } from '#utils';
 import { fetch, request } from 'undici';
-import type { HttpMethod } from 'undici/types/dispatcher.js';
-import ytsr, { Video } from 'ytsr';
+import { YouTube, Video } from 'youtube-sr';
 import { getConfig } from './config.js';
 const BASE = `https://api.spotify.com/v1`;
 
 export async function authorize(): Promise<string> {
 	const { clientId, clientSecret } = getConfig(true);
 
-	const options = {
+	const res = await request(`https://accounts.spotify.com/api/token`, {
 		headers: {
 			Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`,
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
 		body: 'grant_type=client_credentials',
-		json: true,
-		method: 'POST' as HttpMethod
-	};
-
-	const res = await request(`https://accounts.spotify.com/api/token`, options);
+		// json: true,
+		method: 'POST'
+	});
 
 	return (await res.body.json()).access_token;
 }
@@ -67,12 +64,15 @@ export async function getAlbum(id: string) {
 	return res.json() as Promise<Album.RootObject>;
 }
 
-export async function getClosestYoutubeTrack(song: SpotifyTrack.Item) {
-	const results = await ytsr(`${song.name} ${song.artists[0].name}`, { limit: 10 });
+export async function getClosestYoutubeTrack(song: SpotifyTrack.Item): Promise<Video> {
+	const results = await YouTube.search(`${song.name} ${song.artists[0].name} lyrics`, { limit: 20, type: 'video' });
 
-	const videos = results.items.filter((s) => s.type === 'video' && s.duration && s.title).map((v) => v as Video);
-	const times = videos.map((r) => parse(r.duration!) * 1000);
+	const videos = results.filter(
+		(s) => s.duration && s.title && song.name.toLowerCase().includes('remix') === s.title!.toLowerCase().includes('remix')
+	);
+	const times = videos.map((r) => r.duration);
 	const closest = times.reduce((prev, curr) => (Math.abs(curr - song.duration_ms) < Math.abs(prev - song.duration_ms) ? curr : prev));
-
-	return videos.find((s) => parse((s as Video).duration!) * 1000 === closest) as Video;
+	const result = videos.find((s) => s.duration === closest);
+	if (result) return result;
+	throw new Error('No similar videos found');
 }
