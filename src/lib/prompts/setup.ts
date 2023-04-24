@@ -1,4 +1,4 @@
-import inquirer, { QuestionCollection } from 'inquirer';
+import inquirer, { type QuestionCollection } from 'inquirer';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 

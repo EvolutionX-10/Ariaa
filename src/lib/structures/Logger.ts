@@ -1,4 +1,4 @@
-import { bgBlueBright, bgMagentaBright, bgRedBright, bgYellowBright, blueBright, Color, cyan, whiteBright } from 'colorette';
+import { bgBlueBright, bgMagentaBright, bgRedBright, bgYellowBright, blueBright, type Color, cyan, whiteBright } from 'colorette';
 
 class Logger {
 	private level: LogLevel = LogLevel.Info;

@@ -1,7 +1,7 @@
 import { CONFIG_FILE } from '#constants';
 import { questions } from '#lib/prompts';
 import { Command, logger } from '#lib/structures';
-import { AriaaConfig, getConfig } from '#utils';
+import { type AriaaConfig, getConfig } from '#utils';
 import { writeFileSync } from 'fs';
 import inquirer from 'inquirer';
 import { homedir } from 'node:os';
