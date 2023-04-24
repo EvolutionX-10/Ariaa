@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.3.1](https://github.com/EvolutionX-10/Ariaa/compare/v1.3.0...v1.3.1) (2023-04-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency colorette to v2.0.20 ([#191](https://github.com/EvolutionX-10/Ariaa/issues/191)) ([932053b](https://github.com/EvolutionX-10/Ariaa/commit/932053bb8d2ae5647c246932d08812d6a57e4b51))
+* **deps:** update dependency commander to v10.0.1 ([#192](https://github.com/EvolutionX-10/Ariaa/issues/192)) ([cd96d24](https://github.com/EvolutionX-10/Ariaa/commit/cd96d24733bafb3673c3a0c74d98866a541d3a43))
+* **deps:** update dependency undici to v5.21.2 ([2177b41](https://github.com/EvolutionX-10/Ariaa/commit/2177b4157e8236974f854de859c58c271b428384))
+* **deps:** update dependency ytdl-core to v4.11.3 ([2d55597](https://github.com/EvolutionX-10/Ariaa/commit/2d55597ff19dba31c730b1e050deb3edbaa3d5c0))
+* **deps:** update dependency ytdl-core to v4.11.4 ([#190](https://github.com/EvolutionX-10/Ariaa/issues/190)) ([9b35a24](https://github.com/EvolutionX-10/Ariaa/commit/9b35a247c539f5cf8b775565e83e9fa32de10ce4))
+
 ## [1.3.0](https://github.com/EvolutionX-10/Ariaa/compare/v1.2.1...v1.3.0) (2023-03-30)
 
 
