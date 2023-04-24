@@ -70,7 +70,7 @@
 		"@types/cli-progress": "3.11.0",
 		"@types/fluent-ffmpeg": "2.1.21",
 		"@types/inquirer": "9.0.3",
-		"@types/node": "18.15.11",
+		"@types/node": "18.16.0",
 		"@typescript-eslint/eslint-plugin": "5.59.0",
 		"@typescript-eslint/parser": "5.59.0",
 		"eslint": "8.38.0",
