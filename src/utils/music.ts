@@ -3,7 +3,7 @@ import { path } from '@ffmpeg-installer/ffmpeg';
 import { Presets, SingleBar } from 'cli-progress';
 import { blue, blueBright, greenBright, red, underline, yellowBright } from 'colorette';
 import ffmpeg from 'fluent-ffmpeg';
-import { writeFile } from 'node:fs/promises';
+import { rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import sanitize from 'sanitize-filename';
@@ -12,6 +12,7 @@ import ytdl from 'ytdl-core';
 import { YouTube, Video } from 'youtube-sr';
 import { getConfig, musicPath } from './config.js';
 import { searchSpotify } from './spotify.js';
+import type { Readable } from 'node:stream';
 
 export async function search(song: string, provider: 'youtube'): Promise<Video[]>;
 export async function search(song: string, provider: 'spotify'): Promise<SpotifyTrack.Item[]>;
@@ -71,14 +72,19 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 		await writeFile(tmpImg, Buffer.from(coverStream));
 	}
 
+	const tmpAudio = join(tmpdir(), `${(Math.random() + 1).toString(36)}.${overrideformat}`);
+
+	await saveTmpAudio(stream, tmpAudio);
+
 	let date: string | undefined;
 
 	if (metadata?.album.release_date) {
 		date = `${new Date(metadata.album.release_date).getUTCFullYear()}`;
 	}
 	const name = metadata ? filter(metadata.name) : filter(song.title!);
-	const file = ffmpeg(stream, { logger })
+	const file = ffmpeg(tmpAudio)
 		.audioBitrate(bitrate)
+		.outputOptions('-acodec', 'libmp3lame', '-b:a', `${bitrate}`, '-id3v2_version', '3')
 		.on('progress', (p) => {
 			bar.update(Math.floor(parse(p.timemark.slice(3))));
 		})
@@ -115,7 +121,12 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 		);
 	}
 
-	file.save(musicPath(sanitize(name), overrideformat));
+	file.saveToFile(musicPath(sanitize(name), overrideformat));
+
+	file.on('end', async () => {
+		if (tmpImg) await rm(tmpImg);
+		await rm(tmpAudio);
+	});
 }
 
 export function parse(t: string) {
@@ -133,4 +144,11 @@ export function parseReverse(ms: number) {
 
 export function filter(s: string) {
 	return s?.replaceAll(/\(.*\)|\[.*\]/gm, '')?.trim();
+}
+
+function saveTmpAudio(audioStream: Readable, destination: string) {
+	return new Promise((resolve) => {
+		const ff = ffmpeg(audioStream).outputOptions('-acodec', 'libmp3lame', '-b:a', '320k').saveToFile(destination);
+		ff.on('end', resolve);
+	});
 }
