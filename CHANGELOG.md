@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/EvolutionX-10/Ariaa/compare/v1.3.1...v1.3.2) (2023-07-02)
+
+
+### Bug Fixes
+
+* finally album art is back! ([a53767b](https://github.com/EvolutionX-10/Ariaa/commit/a53767b95d9ad3ffb781855abb2b317c8b7871fe))
+
 ## [1.3.1](https://github.com/EvolutionX-10/Ariaa/compare/v1.3.0...v1.3.1) (2023-04-19)
 
 
