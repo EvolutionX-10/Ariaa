@@ -560,90 +560,90 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-arm64@npm:1.3.68":
-  version: 1.3.68
-  resolution: "@swc/core-darwin-arm64@npm:1.3.68"
+"@swc/core-darwin-arm64@npm:1.3.69":
+  version: 1.3.69
+  resolution: "@swc/core-darwin-arm64@npm:1.3.69"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-x64@npm:1.3.68":
-  version: 1.3.68
-  resolution: "@swc/core-darwin-x64@npm:1.3.68"
+"@swc/core-darwin-x64@npm:1.3.69":
+  version: 1.3.69
+  resolution: "@swc/core-darwin-x64@npm:1.3.69"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm-gnueabihf@npm:1.3.68":
-  version: 1.3.68
-  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.68"
+"@swc/core-linux-arm-gnueabihf@npm:1.3.69":
+  version: 1.3.69
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.69"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-gnu@npm:1.3.68":
-  version: 1.3.68
-  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.68"
+"@swc/core-linux-arm64-gnu@npm:1.3.69":
+  version: 1.3.69
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.69"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-musl@npm:1.3.68":
-  version: 1.3.68
-  resolution: "@swc/core-linux-arm64-musl@npm:1.3.68"
+"@swc/core-linux-arm64-musl@npm:1.3.69":
+  version: 1.3.69
+  resolution: "@swc/core-linux-arm64-musl@npm:1.3.69"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-gnu@npm:1.3.68":
-  version: 1.3.68
-  resolution: "@swc/core-linux-x64-gnu@npm:1.3.68"
+"@swc/core-linux-x64-gnu@npm:1.3.69":
+  version: 1.3.69
+  resolution: "@swc/core-linux-x64-gnu@npm:1.3.69"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-musl@npm:1.3.68":
-  version: 1.3.68
-  resolution: "@swc/core-linux-x64-musl@npm:1.3.68"
+"@swc/core-linux-x64-musl@npm:1.3.69":
+  version: 1.3.69
+  resolution: "@swc/core-linux-x64-musl@npm:1.3.69"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-win32-arm64-msvc@npm:1.3.68":
-  version: 1.3.68
-  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.68"
+"@swc/core-win32-arm64-msvc@npm:1.3.69":
+  version: 1.3.69
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.69"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-win32-ia32-msvc@npm:1.3.68":
-  version: 1.3.68
-  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.68"
+"@swc/core-win32-ia32-msvc@npm:1.3.69":
+  version: 1.3.69
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.69"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@swc/core-win32-x64-msvc@npm:1.3.68":
-  version: 1.3.68
-  resolution: "@swc/core-win32-x64-msvc@npm:1.3.68"
+"@swc/core-win32-x64-msvc@npm:1.3.69":
+  version: 1.3.69
+  resolution: "@swc/core-win32-x64-msvc@npm:1.3.69"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core@npm:1.3.68":
-  version: 1.3.68
-  resolution: "@swc/core@npm:1.3.68"
+"@swc/core@npm:1.3.69":
+  version: 1.3.69
+  resolution: "@swc/core@npm:1.3.69"
   dependencies:
-    "@swc/core-darwin-arm64": 1.3.68
-    "@swc/core-darwin-x64": 1.3.68
-    "@swc/core-linux-arm-gnueabihf": 1.3.68
-    "@swc/core-linux-arm64-gnu": 1.3.68
-    "@swc/core-linux-arm64-musl": 1.3.68
-    "@swc/core-linux-x64-gnu": 1.3.68
-    "@swc/core-linux-x64-musl": 1.3.68
-    "@swc/core-win32-arm64-msvc": 1.3.68
-    "@swc/core-win32-ia32-msvc": 1.3.68
-    "@swc/core-win32-x64-msvc": 1.3.68
+    "@swc/core-darwin-arm64": 1.3.69
+    "@swc/core-darwin-x64": 1.3.69
+    "@swc/core-linux-arm-gnueabihf": 1.3.69
+    "@swc/core-linux-arm64-gnu": 1.3.69
+    "@swc/core-linux-arm64-musl": 1.3.69
+    "@swc/core-linux-x64-gnu": 1.3.69
+    "@swc/core-linux-x64-musl": 1.3.69
+    "@swc/core-win32-arm64-msvc": 1.3.69
+    "@swc/core-win32-ia32-msvc": 1.3.69
+    "@swc/core-win32-x64-msvc": 1.3.69
   peerDependencies:
     "@swc/helpers": ^0.5.0
   dependenciesMeta:
@@ -670,7 +670,7 @@ __metadata:
   peerDependenciesMeta:
     "@swc/helpers":
       optional: true
-  checksum: f56ad1d4cb91f7cc1cb5d4b9894bbb528da0b2eabc98984581f5b3f3187cf2c0d512003880f6ff7a3f6d215b7a3dcbf5a9c45e8a428ac2d711941027c0151d89
+  checksum: 764b5c489030b1cf34ea412d7b7e0680996101d667387c646b44d89e630605f52d48d3ca6c0e63811b0ae675018602dbb132e149c01c9154291ecf180787bd86
   languageName: node
   linkType: hard
 
@@ -1094,7 +1094,7 @@ __metadata:
     "@sapphire/eslint-config": 4.4.3
     "@sapphire/prettier-config": 1.4.5
     "@sapphire/ts-config": 4.0.0
-    "@swc/core": 1.3.68
+    "@swc/core": 1.3.69
     "@types/cli-progress": 3.11.0
     "@types/fluent-ffmpeg": 2.1.21
     "@types/inquirer": 9.0.3
@@ -1109,7 +1109,7 @@ __metadata:
     eslint-plugin-prettier: 4.2.1
     fluent-ffmpeg: 2.1.2
     husky: 8.0.3
-    inquirer: 9.2.7
+    inquirer: 9.2.8
     inquirer-select-directory: 1.2.0
     pinst: 3.0.0
     prettier: 2.8.8
@@ -1119,7 +1119,7 @@ __metadata:
     typescript: 5.1.6
     undici: 5.22.1
     youtube-sr: 4.3.4
-    ytdl-core: 4.11.4
+    ytdl-core: 4.11.5
   bin:
     aria: ./dist/index.js
     ariaa: ./dist/index.js
@@ -1383,7 +1383,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^5.2.0":
+"chalk@npm:^5.3.0":
   version: 5.3.0
   resolution: "chalk@npm:5.3.0"
   checksum: 623922e077b7d1e9dedaea6f8b9e9352921f8ae3afe739132e0e00c275971bdd331268183b2628cf4ab1727c45ea1f28d7e24ac23ce1db1eb653c414ca8a5a80
@@ -2828,12 +2828,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"inquirer@npm:9.2.7":
-  version: 9.2.7
-  resolution: "inquirer@npm:9.2.7"
+"inquirer@npm:9.2.8":
+  version: 9.2.8
+  resolution: "inquirer@npm:9.2.8"
   dependencies:
     ansi-escapes: ^4.3.2
-    chalk: ^5.2.0
+    chalk: ^5.3.0
     cli-cursor: ^3.1.0
     cli-width: ^4.0.0
     external-editor: ^3.0.3
@@ -2847,7 +2847,7 @@ __metadata:
     strip-ansi: ^6.0.1
     through: ^2.3.6
     wrap-ansi: ^6.0.1
-  checksum: 5522fd4af72aec151d92a8156d24ff55c2e5f68177eac1e704a594004b31b3215ff92c59a3105691b8e237640995efd55df0aa2e3b47053fb27768ded760fbf5
+  checksum: 95127000be2bdd195fc2d94f7bedf54fe4889ff0c8cd5265bb08d50e6a9f10a749aa2d80e2d3ce647c2228d78f864ab40d0c768ddc8af62d48b9abd24cfbb6b2
   languageName: node
   linkType: hard
 
@@ -5071,13 +5071,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ytdl-core@npm:4.11.4":
-  version: 4.11.4
-  resolution: "ytdl-core@npm:4.11.4"
+"ytdl-core@npm:4.11.5":
+  version: 4.11.5
+  resolution: "ytdl-core@npm:4.11.5"
   dependencies:
     m3u8stream: ^0.8.6
     miniget: ^4.2.2
     sax: ^1.1.3
-  checksum: 62c83baf85b4fc4808a149d2ec9a2afdd86f60597362aa8ceebb3dac5c11d9a54f9de11bb4b3d34e70d4a55679457b879a1e3f079124e2933dac036d086bc378
+  checksum: f81ae907780747c4522198003967da1730af33fb6c8632ed2ba7a3dfb67a3fd1bf73807a68506a5926d209ee2f3305bfb6a633f6829b39ed60694c033c300fa9
   languageName: node
   linkType: hard
