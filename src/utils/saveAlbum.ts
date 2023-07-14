@@ -3,7 +3,7 @@ import { path } from '@ffmpeg-installer/ffmpeg';
 import { MultiBar, Presets } from 'cli-progress';
 import { blueBright, cyanBright, greenBright, underline } from 'colorette';
 import ffmpeg from 'fluent-ffmpeg';
-import { writeFile } from 'node:fs/promises';
+import { rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'os';
 import { join } from 'path';
 import sanitize from 'sanitize-filename';
@@ -13,7 +13,7 @@ import type { Video } from 'youtube-sr';
 import { getConfig, musicPath } from './config.js';
 import { wait } from './functions.js';
 import { getGenre } from './genre.js';
-import { filter, parse } from './music.js';
+import { filter, parse, saveTmpAudio } from './music.js';
 import { getArtist } from './spotify.js';
 
 export async function saveAlbum(videos: Video[], album: Album.RootObject, overrideformat?: 'mp3' | 'flac') {
@@ -46,9 +46,12 @@ export async function saveAlbum(videos: Video[], album: Album.RootObject, overri
 		const bar = bars.create(vid.duration / 1000, 0);
 		const stream = ytdl(vid.url, { quality: 'highestaudio', highWaterMark: 1 << 25 });
 
-		ffmpeg(stream, { logger })
-			.input(tmpImg)
+		const tmpAudio = join(tmpdir(), `${(Math.random() + 1).toString(36)}.${overrideformat}`);
+		await saveTmpAudio(stream, tmpAudio);
+
+		const file = ffmpeg(tmpAudio)
 			.audioBitrate(bitrate)
+			.outputOptions('-acodec', 'libmp3lame', '-b:a', `${bitrate}`, '-id3v2_version', '3')
 			.on('progress', (p) => {
 				bar.update(Math.floor(parse(p.timemark.slice(3))));
 			})
@@ -61,6 +64,7 @@ export async function saveAlbum(videos: Video[], album: Album.RootObject, overri
 						logger.debug(`Downloaded ${underline(cyanBright(track.name))}`);
 					}
 					logger.info(`Successfully saved ${underline(album.name)}`);
+					if (tmpImg) await rm(tmpImg);
 				}
 				index++;
 			})
@@ -70,8 +74,9 @@ export async function saveAlbum(videos: Video[], album: Album.RootObject, overri
 			.outputOptions(`-metadata`, `genre=${genre}`)
 			.outputOptions(`-metadata`, `artist=${metadata?.artists.map((r) => r.name).join(', ')}`)
 			.outputOptions(`-metadata`, `album_artist=${album.artists[0].name}`)
-			.outputOptions(`-metadata`, `date=${date}`)
-			.outputOptions(
+			.outputOptions(`-metadata`, `date=${date}`);
+		if (tmpImg) {
+			file.input(tmpImg).outputOptions(
 				'-map',
 				'0:0',
 				'-map',
@@ -82,7 +87,12 @@ export async function saveAlbum(videos: Video[], album: Album.RootObject, overri
 				'title="Album cover"',
 				'-metadata:s:v',
 				'comment="Cover (Front)"'
-			)
-			.save(musicPath(sanitize(metadata.name), overrideformat, album.name));
+			);
+		}
+		file.save(musicPath(sanitize(metadata.name), overrideformat, album.name));
+
+		file.on('end', async () => {
+			await rm(tmpAudio);
+		});
 	}
 }

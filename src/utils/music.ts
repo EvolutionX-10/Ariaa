@@ -146,7 +146,7 @@ export function filter(s: string) {
 	return s?.replaceAll(/\(.*\)|\[.*\]/gm, '')?.trim();
 }
 
-function saveTmpAudio(audioStream: Readable, destination: string) {
+export function saveTmpAudio(audioStream: Readable, destination: string) {
 	return new Promise((resolve) => {
 		const ff = ffmpeg(audioStream).outputOptions('-acodec', 'libmp3lame', '-b:a', '320k').saveToFile(destination);
 		ff.on('end', resolve);
