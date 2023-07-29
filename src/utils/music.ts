@@ -143,7 +143,7 @@ export function parseReverse(ms: number) {
 }
 
 export function filter(s: string) {
-	return s?.replaceAll(/\(.*\)|\[.*\]/gm, '')?.trim();
+	return s?.replaceAll(/\(.*\)|\[.*]/gm, '')?.trim();
 }
 
 export function saveTmpAudio(audioStream: Readable, destination: string) {
