@@ -49,12 +49,12 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 	const bar = new SingleBar(
 		{
 			hideCursor: true,
-			format: `Downloading | ${blueBright('{bar}')} {percentage}% | ETA: ${greenBright('{eta}')}s | {value}/{total}`
+			format: `Downloading | ${blueBright('{bar}')} {percentage}% | ETA: ${greenBright('{eta}')}s`
 		},
 		Presets.shades_classic
 	);
 
-	bar.start(song.duration / 1000, 0);
+	bar.start((song.duration * 2) / 1000, 0);
 	const start = Date.now();
 
 	const stream = ytdl(song.url, {
@@ -74,7 +74,7 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 
 	const tmpAudio = join(tmpdir(), `${(Math.random() + 1).toString(36)}.${overrideformat}`);
 
-	await saveTmpAudio(stream, tmpAudio);
+	await saveTmpAudio(stream, tmpAudio, bar, bitrate);
 
 	let date: string | undefined;
 
@@ -83,13 +83,12 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 	}
 	const name = metadata ? filter(metadata.name) : filter(song.title!);
 	const file = ffmpeg(tmpAudio)
-		.audioBitrate(bitrate)
-		.outputOptions('-acodec', 'libmp3lame', '-b:a', `${bitrate}`, '-id3v2_version', '3')
+		.outputOptions('-acodec', 'libmp3lame', '-b:a', `${bitrate}k`, '-id3v2_version', '3')
 		.on('progress', (p) => {
-			bar.update(Math.floor(parse(p.timemark.slice(3))));
+			bar.update(Math.floor(parse(p.timemark.slice(3))) + song.duration / 1000);
 		})
 		.on('end', () => {
-			bar.update(song.duration / 1000);
+			bar.update((song.duration * 2) / 1000);
 			bar.stop();
 			logger.debug('Download Complete');
 			logger.info(`Saved ${yellowBright(underline(name))} in ${(Date.now() - start) / 1000}s`);
@@ -146,9 +145,12 @@ export function filter(s: string) {
 	return s?.replaceAll(/\(.*\)|\[.*]/gm, '')?.trim();
 }
 
-export function saveTmpAudio(audioStream: Readable, destination: string) {
+export function saveTmpAudio(audioStream: Readable, destination: string, bar: SingleBar, bitrate: 128 | 320) {
 	return new Promise((resolve) => {
-		const ff = ffmpeg(audioStream).outputOptions('-acodec', 'libmp3lame', '-b:a', '320k').saveToFile(destination);
+		const ff = ffmpeg(audioStream).outputOptions('-acodec', 'libmp3lame', '-b:a', `${bitrate}k`).saveToFile(destination);
+		ff.on('progress', (p) => {
+			bar.update(Math.floor(parse(p.timemark.slice(3))));
+		});
 		ff.on('end', resolve);
 	});
 }

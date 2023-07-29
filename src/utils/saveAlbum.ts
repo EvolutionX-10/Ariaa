@@ -47,7 +47,7 @@ export async function saveAlbum(videos: Video[], album: Album.RootObject, overri
 		const stream = ytdl(vid.url, { quality: 'highestaudio', highWaterMark: 1 << 25 });
 
 		const tmpAudio = join(tmpdir(), `${(Math.random() + 1).toString(36)}.${overrideformat}`);
-		await saveTmpAudio(stream, tmpAudio);
+		await saveTmpAudio(stream, tmpAudio, bar, bitrate);
 
 		const file = ffmpeg(tmpAudio)
 			.audioBitrate(bitrate)
