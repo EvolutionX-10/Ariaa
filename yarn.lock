@@ -211,6 +211,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint-community/regexpp@npm:^4.6.1":
+  version: 4.6.2
+  resolution: "@eslint-community/regexpp@npm:4.6.2"
+  checksum: a3c341377b46b54fa228f455771b901d1a2717f95d47dcdf40199df30abc000ba020f747f114f08560d119e979d882a94cf46cfc51744544d54b00319c0f2724
+  languageName: node
+  linkType: hard
+
 "@eslint/eslintrc@npm:^2.1.0":
   version: 2.1.0
   resolution: "@eslint/eslintrc@npm:2.1.0"
@@ -228,10 +235,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/eslintrc@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "@eslint/eslintrc@npm:2.1.1"
+  dependencies:
+    ajv: ^6.12.4
+    debug: ^4.3.2
+    espree: ^9.6.0
+    globals: ^13.19.0
+    ignore: ^5.2.0
+    import-fresh: ^3.2.1
+    js-yaml: ^4.1.0
+    minimatch: ^3.1.2
+    strip-json-comments: ^3.1.1
+  checksum: bf909ea183d27238c257a82d4ffdec38ca94b906b4b8dfae02ecbe7ecc9e5a8182ef5e469c808bb8cb4fea4750f43ac4ca7c4b4a167b6cd7e3aaacd386b2bd25
+  languageName: node
+  linkType: hard
+
 "@eslint/js@npm:8.44.0":
   version: 8.44.0
   resolution: "@eslint/js@npm:8.44.0"
   checksum: fc539583226a28f5677356e9f00d2789c34253f076643d2e32888250e509a4e13aafe0880cb2425139051de0f3a48d25bfc5afa96b7304f203b706c17340e3cf
+  languageName: node
+  linkType: hard
+
+"@eslint/js@npm:^8.46.0":
+  version: 8.46.0
+  resolution: "@eslint/js@npm:8.46.0"
+  checksum: 7aed479832302882faf5bec37e9d068f270f84c19b3fb529646a7c1b031e73a312f730569c78806492bc09cfce3d7651dfab4ce09a56cbb06bc6469449e56377
   languageName: node
   linkType: hard
 
@@ -460,6 +491,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ljharb/through@npm:^2.3.9":
+  version: 2.3.9
+  resolution: "@ljharb/through@npm:2.3.9"
+  checksum: a47ffed12ef4b08d07458db8bff5f7a13a7030fddf7dbfa947a765581a634d42ee90f7b8c249315aad122c21ad061e97a74f65aef3c03d2c09291d11312f0bfb
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -567,90 +605,90 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-arm64@npm:1.3.71":
-  version: 1.3.71
-  resolution: "@swc/core-darwin-arm64@npm:1.3.71"
+"@swc/core-darwin-arm64@npm:1.3.73":
+  version: 1.3.73
+  resolution: "@swc/core-darwin-arm64@npm:1.3.73"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-x64@npm:1.3.71":
-  version: 1.3.71
-  resolution: "@swc/core-darwin-x64@npm:1.3.71"
+"@swc/core-darwin-x64@npm:1.3.73":
+  version: 1.3.73
+  resolution: "@swc/core-darwin-x64@npm:1.3.73"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm-gnueabihf@npm:1.3.71":
-  version: 1.3.71
-  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.71"
+"@swc/core-linux-arm-gnueabihf@npm:1.3.73":
+  version: 1.3.73
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.73"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-gnu@npm:1.3.71":
-  version: 1.3.71
-  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.71"
+"@swc/core-linux-arm64-gnu@npm:1.3.73":
+  version: 1.3.73
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.73"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-musl@npm:1.3.71":
-  version: 1.3.71
-  resolution: "@swc/core-linux-arm64-musl@npm:1.3.71"
+"@swc/core-linux-arm64-musl@npm:1.3.73":
+  version: 1.3.73
+  resolution: "@swc/core-linux-arm64-musl@npm:1.3.73"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-gnu@npm:1.3.71":
-  version: 1.3.71
-  resolution: "@swc/core-linux-x64-gnu@npm:1.3.71"
+"@swc/core-linux-x64-gnu@npm:1.3.73":
+  version: 1.3.73
+  resolution: "@swc/core-linux-x64-gnu@npm:1.3.73"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-musl@npm:1.3.71":
-  version: 1.3.71
-  resolution: "@swc/core-linux-x64-musl@npm:1.3.71"
+"@swc/core-linux-x64-musl@npm:1.3.73":
+  version: 1.3.73
+  resolution: "@swc/core-linux-x64-musl@npm:1.3.73"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-win32-arm64-msvc@npm:1.3.71":
-  version: 1.3.71
-  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.71"
+"@swc/core-win32-arm64-msvc@npm:1.3.73":
+  version: 1.3.73
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.73"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-win32-ia32-msvc@npm:1.3.71":
-  version: 1.3.71
-  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.71"
+"@swc/core-win32-ia32-msvc@npm:1.3.73":
+  version: 1.3.73
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.73"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@swc/core-win32-x64-msvc@npm:1.3.71":
-  version: 1.3.71
-  resolution: "@swc/core-win32-x64-msvc@npm:1.3.71"
+"@swc/core-win32-x64-msvc@npm:1.3.73":
+  version: 1.3.73
+  resolution: "@swc/core-win32-x64-msvc@npm:1.3.73"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core@npm:1.3.71":
-  version: 1.3.71
-  resolution: "@swc/core@npm:1.3.71"
+"@swc/core@npm:1.3.73":
+  version: 1.3.73
+  resolution: "@swc/core@npm:1.3.73"
   dependencies:
-    "@swc/core-darwin-arm64": 1.3.71
-    "@swc/core-darwin-x64": 1.3.71
-    "@swc/core-linux-arm-gnueabihf": 1.3.71
-    "@swc/core-linux-arm64-gnu": 1.3.71
-    "@swc/core-linux-arm64-musl": 1.3.71
-    "@swc/core-linux-x64-gnu": 1.3.71
-    "@swc/core-linux-x64-musl": 1.3.71
-    "@swc/core-win32-arm64-msvc": 1.3.71
-    "@swc/core-win32-ia32-msvc": 1.3.71
-    "@swc/core-win32-x64-msvc": 1.3.71
+    "@swc/core-darwin-arm64": 1.3.73
+    "@swc/core-darwin-x64": 1.3.73
+    "@swc/core-linux-arm-gnueabihf": 1.3.73
+    "@swc/core-linux-arm64-gnu": 1.3.73
+    "@swc/core-linux-arm64-musl": 1.3.73
+    "@swc/core-linux-x64-gnu": 1.3.73
+    "@swc/core-linux-x64-musl": 1.3.73
+    "@swc/core-win32-arm64-msvc": 1.3.73
+    "@swc/core-win32-ia32-msvc": 1.3.73
+    "@swc/core-win32-x64-msvc": 1.3.73
   peerDependencies:
     "@swc/helpers": ^0.5.0
   dependenciesMeta:
@@ -677,7 +715,7 @@ __metadata:
   peerDependenciesMeta:
     "@swc/helpers":
       optional: true
-  checksum: 86389384951c531579e518c012d36b28ef070146faf8d6965a174fd2c7b18113c5939fc3ca81ec8be448188949763cc98cb20d16f44316cd209860f53b760c80
+  checksum: b052926b1bbd99cf77896c01c9c84da4d31295ca8dcea93d600b7baf5ae4ea078b625a979cb28fe1ebf6d0d442fe66b68c39fa501f3aa3d5ae795cd7c234067b
   languageName: node
   linkType: hard
 
@@ -1101,7 +1139,7 @@ __metadata:
     "@sapphire/eslint-config": 4.4.3
     "@sapphire/prettier-config": 1.4.5
     "@sapphire/ts-config": 4.0.1
-    "@swc/core": 1.3.71
+    "@swc/core": 1.3.73
     "@types/cli-progress": 3.11.0
     "@types/fluent-ffmpeg": 2.1.21
     "@types/inquirer": 9.0.3
@@ -1111,12 +1149,12 @@ __metadata:
     cli-progress: 3.12.0
     colorette: 2.0.20
     commander: 10.0.1
-    eslint: 8.45.0
-    eslint-config-prettier: 8.8.0
+    eslint: 8.46.0
+    eslint-config-prettier: 8.9.0
     eslint-plugin-prettier: 4.2.1
     fluent-ffmpeg: 2.1.2
     husky: 8.0.3
-    inquirer: 9.2.8
+    inquirer: 9.2.9
     inquirer-select-directory: 1.2.0
     pinst: 3.0.0
     prettier: 2.8.8
@@ -1946,7 +1984,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:8.8.0, eslint-config-prettier@npm:^8.8.0":
+"eslint-config-prettier@npm:8.9.0":
+  version: 8.9.0
+  resolution: "eslint-config-prettier@npm:8.9.0"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  bin:
+    eslint-config-prettier: bin/cli.js
+  checksum: a675d0dabd76b700ef2d062b5ec6a634e105a8e8c070f95281fd2ccb614527fac60b4c758132058c50f0521fd19313f1f5be45ce9ebf081f2e5f77ae6eb7d8db
+  languageName: node
+  linkType: hard
+
+"eslint-config-prettier@npm:^8.8.0":
   version: 8.8.0
   resolution: "eslint-config-prettier@npm:8.8.0"
   peerDependencies:
@@ -1992,6 +2041,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-scope@npm:^7.2.2":
+  version: 7.2.2
+  resolution: "eslint-scope@npm:7.2.2"
+  dependencies:
+    esrecurse: ^4.3.0
+    estraverse: ^5.2.0
+  checksum: ec97dbf5fb04b94e8f4c5a91a7f0a6dd3c55e46bfc7bbcd0e3138c3a76977570e02ed89a1810c778dcd72072ff0e9621ba1379b4babe53921d71e2e4486fda3e
+  languageName: node
+  linkType: hard
+
 "eslint-visitor-keys@npm:^3.3.0, eslint-visitor-keys@npm:^3.4.1":
   version: 3.4.1
   resolution: "eslint-visitor-keys@npm:3.4.1"
@@ -1999,7 +2058,61 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.45.0, eslint@npm:^8.44.0":
+"eslint-visitor-keys@npm:^3.4.2":
+  version: 3.4.2
+  resolution: "eslint-visitor-keys@npm:3.4.2"
+  checksum: 9e0e7e4aaea705c097ae37c97410e5f167d4d2193be2edcb1f0760762ede3df01545e4820ae314f42dcec687745f2c6dcaf6d83575c4a2a241eb0c8517d724f2
+  languageName: node
+  linkType: hard
+
+"eslint@npm:8.46.0":
+  version: 8.46.0
+  resolution: "eslint@npm:8.46.0"
+  dependencies:
+    "@eslint-community/eslint-utils": ^4.2.0
+    "@eslint-community/regexpp": ^4.6.1
+    "@eslint/eslintrc": ^2.1.1
+    "@eslint/js": ^8.46.0
+    "@humanwhocodes/config-array": ^0.11.10
+    "@humanwhocodes/module-importer": ^1.0.1
+    "@nodelib/fs.walk": ^1.2.8
+    ajv: ^6.12.4
+    chalk: ^4.0.0
+    cross-spawn: ^7.0.2
+    debug: ^4.3.2
+    doctrine: ^3.0.0
+    escape-string-regexp: ^4.0.0
+    eslint-scope: ^7.2.2
+    eslint-visitor-keys: ^3.4.2
+    espree: ^9.6.1
+    esquery: ^1.4.2
+    esutils: ^2.0.2
+    fast-deep-equal: ^3.1.3
+    file-entry-cache: ^6.0.1
+    find-up: ^5.0.0
+    glob-parent: ^6.0.2
+    globals: ^13.19.0
+    graphemer: ^1.4.0
+    ignore: ^5.2.0
+    imurmurhash: ^0.1.4
+    is-glob: ^4.0.0
+    is-path-inside: ^3.0.3
+    js-yaml: ^4.1.0
+    json-stable-stringify-without-jsonify: ^1.0.1
+    levn: ^0.4.1
+    lodash.merge: ^4.6.2
+    minimatch: ^3.1.2
+    natural-compare: ^1.4.0
+    optionator: ^0.9.3
+    strip-ansi: ^6.0.1
+    text-table: ^0.2.0
+  bin:
+    eslint: bin/eslint.js
+  checksum: 7a7d36b1a3bbc12e08fbb5bc36fd482a7a5a1797e62e762499dd45601b9e45aaa53a129f31ce0b4444551a9639b8b681ad535f379893dd1e3ae37b31dccd82aa
+  languageName: node
+  linkType: hard
+
+"eslint@npm:^8.44.0":
   version: 8.45.0
   resolution: "eslint@npm:8.45.0"
   dependencies:
@@ -2046,7 +2159,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"espree@npm:^9.6.0":
+"espree@npm:^9.6.0, espree@npm:^9.6.1":
   version: 9.6.1
   resolution: "espree@npm:9.6.1"
   dependencies:
@@ -2833,10 +2946,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"inquirer@npm:9.2.8":
-  version: 9.2.8
-  resolution: "inquirer@npm:9.2.8"
+"inquirer@npm:9.2.9":
+  version: 9.2.9
+  resolution: "inquirer@npm:9.2.9"
   dependencies:
+    "@ljharb/through": ^2.3.9
     ansi-escapes: ^4.3.2
     chalk: ^5.3.0
     cli-cursor: ^3.1.0
@@ -2850,9 +2964,8 @@ __metadata:
     rxjs: ^7.8.1
     string-width: ^4.2.3
     strip-ansi: ^6.0.1
-    through: ^2.3.6
     wrap-ansi: ^6.0.1
-  checksum: 95127000be2bdd195fc2d94f7bedf54fe4889ff0c8cd5265bb08d50e6a9f10a749aa2d80e2d3ce647c2228d78f864ab40d0c768ddc8af62d48b9abd24cfbb6b2
+  checksum: 2d287e43de80def6392fe61f24644610dd7dd85ce2b6ed8b73a22fbd50b36d42c58fcdb2b00f0d07fb9073cc3e01ed5ac21bb6110ae7a686402888e98af39aec
   languageName: node
   linkType: hard
 
