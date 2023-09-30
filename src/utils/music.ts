@@ -13,6 +13,7 @@ import { YouTube, Video } from 'youtube-sr';
 import { getConfig, musicPath } from './config.js';
 import { searchSpotify } from './spotify.js';
 import type { Readable } from 'node:stream';
+import { exec } from 'child_process';
 
 export async function search(song: string, provider: 'youtube'): Promise<Video[]>;
 export async function search(song: string, provider: 'spotify'): Promise<SpotifyTrack.Item[]>;
@@ -125,6 +126,12 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 	file.on('end', async () => {
 		if (tmpImg) await rm(tmpImg);
 		await rm(tmpAudio);
+
+		const child = exec(`start ${musicPath(sanitize(name), overrideformat!)}`);
+		child.on('error', (ee) => {
+			console.error('Failed to play the song... Please open the file manually');
+			console.log(ee);
+		});
 	});
 }
 
