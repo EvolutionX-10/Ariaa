@@ -1,5 +1,5 @@
 import { Command, logger } from '#lib/structures';
-import { getClosestYoutubeTrack, getConfig, getMetadata, map, save, search } from '#utils';
+import { getClosestYoutubeTrack, getConfig, getMetadata, getSong, map, save, search } from '#utils';
 import { blueBright, greenBright, redBright, underline } from 'colorette';
 import inquirer from 'inquirer';
 import ora from 'ora';
@@ -55,6 +55,15 @@ export default new Command({
 		}
 
 		if (!songName.length) throw new Error('Song Name is mandatory');
+
+		if (songName.match(/https:\/\/open\.spotify\.com\/track\/[a-zA-Z0-9]+/)) {
+			logger.debug('Detected Spotify URI');
+			const id = songName.split('/').pop()!.split('?')[0];
+			const metadata = await getSong(id);
+			const ytsong = await getClosestYoutubeTrack(metadata);
+			await save(ytsong, format, metadata);
+			return;
+		}
 
 		const spinner = ora('Searching...').start();
 

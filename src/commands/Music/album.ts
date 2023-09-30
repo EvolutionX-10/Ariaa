@@ -41,6 +41,16 @@ export default new Command({
 
 		if (!albumName.length) throw new Error('Album Name is mandatory');
 
+		if (albumName.match(/https:\/\/open\.spotify\.com\/album\/[a-zA-Z0-9]+/)) {
+			logger.debug('Detected Spotify URI');
+			const id = albumName.split('/').pop()!.split('?')[0];
+			const album = await getAlbum(id);
+			const ytTracks = album.tracks.items.map((r) => getClosestYoutubeTrack(r as SpotifyTrack.Item));
+
+			await saveAlbum(await Promise.all(ytTracks), album, format);
+			return;
+		}
+
 		const spinner = ora('Searching...').start();
 		const searches = await searchSpotify(albumName, 'album', 5);
 		spinner.stop();

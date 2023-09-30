@@ -76,3 +76,15 @@ export async function getClosestYoutubeTrack(song: SpotifyTrack.Item): Promise<V
 	if (result) return result;
 	throw new Error('No similar videos found');
 }
+
+export async function getSong(id: string) {
+	const res = await fetch(`${BASE}/tracks/${id}`, { headers: await headers() });
+	const song = (await res.json()) as SpotifyTrack.Item;
+
+	const features = await getAudioFeatures(id);
+	song.genre = getGenre((await getArtist(song.artists[0].id)).genres) ?? 'Unknown';
+	song.key = assignKey(features.key);
+	song.tempo = Math.round(features.tempo);
+
+	return song;
+}
