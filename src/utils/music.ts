@@ -127,11 +127,13 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 		if (tmpImg) await rm(tmpImg);
 		await rm(tmpAudio);
 
-		const child = exec(`start ${musicPath(sanitize(name), overrideformat!)}`);
-		child.on('error', (ee) => {
-			console.error('Failed to play the song... Please open the file manually');
-			console.log(ee);
-		});
+		// ! Does not work when spaces are there in the song name
+		// ! PS: Doesn't work even with double quotes
+		// const child = exec(`start ${musicPath(sanitize(name), overrideformat!)}`);
+		// child.on('error', (ee) => {
+		// 	console.error('Failed to play the song... Please open the file manually');
+		// 	console.log(ee);
+		// });
 	});
 }
 
