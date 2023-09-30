@@ -2,6 +2,7 @@ import { Command, logger } from '#lib/structures';
 import { getAlbum, getClosestYoutubeTrack, getConfig, saveAlbum, searchSpotify } from '#utils';
 import { blue, blueBright, greenBright, redBright } from 'colorette';
 import inquirer from 'inquirer';
+import ora from 'ora';
 
 export default new Command({
 	description: 'Save albums with ease! [Needs Spotify Credentials]',
@@ -40,8 +41,9 @@ export default new Command({
 
 		if (!albumName.length) throw new Error('Album Name is mandatory');
 
+		const spinner = ora('Searching...').start();
 		const searches = await searchSpotify(albumName, 'album', 5);
-
+		spinner.stop();
 		logger.debug(`Found ${blueBright(searches.albums.items.length)} results`);
 
 		if (!searches.albums.items.length) throw new Error(`No albums found!`);
