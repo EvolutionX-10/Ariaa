@@ -2,6 +2,7 @@ import { Command, logger } from '#lib/structures';
 import { getClosestYoutubeTrack, getConfig, getMetadata, map, save, search } from '#utils';
 import { blueBright, greenBright, redBright, underline } from 'colorette';
 import inquirer from 'inquirer';
+import ora from 'ora';
 import type { Video } from 'youtube-sr';
 
 export default new Command({
@@ -55,6 +56,8 @@ export default new Command({
 
 		if (!songName.length) throw new Error('Song Name is mandatory');
 
+		const spinner = ora('Searching...').start();
+
 		let ytSearch: Video[] | undefined;
 		let spotifySearch: SpotifyTrack.Item[] | undefined;
 		if (provider === 'youtube') {
@@ -63,6 +66,7 @@ export default new Command({
 
 		const searches = (ytSearch ?? spotifySearch)!;
 		logger.debug(`Found ${searches.length} songs!`);
+		spinner.stop();
 
 		if (!searches.length) throw new Error(`No results found, please input better search term!`);
 
