@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.4.0](https://github.com/EvolutionX-10/Ariaa/compare/v1.3.2...v1.4.0) (2023-09-30)
+
+
+### Features
+
+* auto play song after download ([a8fedc2](https://github.com/EvolutionX-10/Ariaa/commit/a8fedc26b14d1077584f6233823dd550f0666fae))
+* rip that auto play feature ([413622e](https://github.com/EvolutionX-10/Ariaa/commit/413622ed3417134eb38a5d2e02620950d2265671))
+* support spotify uri ([0f786cb](https://github.com/EvolutionX-10/Ariaa/commit/0f786cb8ccd1e35abb6d5891ac18985d8c8dfb94))
+
+
+### Bug Fixes
+
+* progress bar works better now & fixed bitrate ([efddd43](https://github.com/EvolutionX-10/Ariaa/commit/efddd43b6d3511d3329d5a2f15ea7eb992525042))
+
+
+### Performance Improvements
+
+* **album:** increase download speed ([#274](https://github.com/EvolutionX-10/Ariaa/issues/274)) ([99b317c](https://github.com/EvolutionX-10/Ariaa/commit/99b317c1b2514571734142d9b5e009ba41e48fbd))
+
 ## [1.3.2](https://github.com/EvolutionX-10/Ariaa/compare/v1.3.1...v1.3.2) (2023-07-02)
 
 
