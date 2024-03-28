@@ -59,7 +59,7 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"packageManager": "yarn@3.6.1",
+	"packageManager": "yarn@3.8.1",
 	"devDependencies": {
 		"@favware/cliff-jumper": "3.0.1",
 		"@favware/npm-deprecate": "1.0.7",
