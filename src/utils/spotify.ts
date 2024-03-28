@@ -17,7 +17,7 @@ export async function authorize(): Promise<string> {
 		method: 'POST'
 	});
 
-	return (await res.body.json()).access_token;
+	return ((await res.body.json()) as SpotifyAuth).access_token;
 }
 
 export async function headers() {
@@ -87,4 +87,11 @@ export async function getSong(id: string) {
 	song.tempo = Math.round(features.tempo);
 
 	return song;
+}
+
+interface SpotifyAuth {
+	access_token: string;
+	token_type: string;
+	expires_in: number;
+	scope: string;
 }
