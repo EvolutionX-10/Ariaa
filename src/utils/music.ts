@@ -114,6 +114,8 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 			'1:0',
 			'-disposition:v',
 			'attached_pic',
+			'-id3v2_version',
+			'3',
 			'-metadata:s:v',
 			'title="Album cover"',
 			'-metadata:s:v',

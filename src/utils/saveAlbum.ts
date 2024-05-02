@@ -103,7 +103,7 @@ async function download(
 					'comment="Cover (Front)"'
 				);
 			}
-			file.saveToFile(musicPath(sanitize(metadata.name), overrideformat, album.name));
+			file.saveToFile(musicPath(sanitize(metadata.name), overrideformat, sanitize(album.name)));
 			// file.on('error', reject);
 		} catch (error) {
 			reject(error);
