@@ -82,6 +82,7 @@
 		"typescript": "5.5.3"
 	},
 	"dependencies": {
+		"@distube/ytdl-core": "^4.14.4",
 		"@ffmpeg-installer/ffmpeg": "^1.1.0",
 		"cli-progress": "3.12.0",
 		"colorette": "2.0.20",
@@ -93,8 +94,7 @@
 		"ora": "8.0.1",
 		"sanitize-filename": "1.6.3",
 		"undici": "6.19.2",
-		"youtube-sr": "4.3.11",
-		"ytdl-core": "4.11.5"
+		"youtube-sr": "4.3.11"
 	},
 	"prettier": "@sapphire/prettier-config"
 }

@@ -8,7 +8,7 @@ import { tmpdir } from 'os';
 import { join } from 'path';
 import sanitize from 'sanitize-filename';
 import { request } from 'undici';
-import ytdl from 'ytdl-core';
+import ytdl from '@distube/ytdl-core';
 import type { Video } from 'youtube-sr';
 import { getConfig, musicPath } from './config.js';
 import { wait } from './functions.js';

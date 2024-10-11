@@ -8,7 +8,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import sanitize from 'sanitize-filename';
 import { request } from 'undici';
-import ytdl from 'ytdl-core';
+import ytdl from '@distube/ytdl-core';
 import { YouTube, Video } from 'youtube-sr';
 import { getConfig, musicPath } from './config.js';
 import { searchSpotify } from './spotify.js';
