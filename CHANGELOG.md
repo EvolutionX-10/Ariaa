@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/EvolutionX-10/Ariaa/compare/v1.4.0...v1.4.1) (2024-10-11)
+
+
+### Bug Fixes
+
+* change ytdl provider ([565d984](https://github.com/EvolutionX-10/Ariaa/commit/565d984f56497ac28d9ee029e7554c563f7e3b76))
+
 ## [1.4.0](https://github.com/EvolutionX-10/Ariaa/compare/v1.3.2...v1.4.0) (2023-09-30)
 
 
