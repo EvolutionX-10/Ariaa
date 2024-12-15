@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/EvolutionX-10/Ariaa/compare/v1.4.1...v1.4.2) (2024-12-15)
+
+
+### Bug Fixes
+
+* cover art and deps push ([e1307a1](https://github.com/EvolutionX-10/Ariaa/commit/e1307a10628d7c9c20c2d7093cf5e9941c1cb61d))
+
 ## [1.4.1](https://github.com/EvolutionX-10/Ariaa/compare/v1.4.0...v1.4.1) (2024-10-11)
 
 
