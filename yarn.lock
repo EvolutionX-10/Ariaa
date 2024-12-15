@@ -12,17 +12,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@distube/ytdl-core@npm:^4.14.4":
-  version: 4.14.4
-  resolution: "@distube/ytdl-core@npm:4.14.4"
+"@distube/ytdl-core@npm:^4.15.3":
+  version: 4.15.3
+  resolution: "@distube/ytdl-core@npm:4.15.3"
   dependencies:
-    http-cookie-agent: ^6.0.5
+    http-cookie-agent: ^6.0.8
+    https-proxy-agent: ^7.0.6
     m3u8stream: ^0.8.6
     miniget: ^4.2.3
     sax: ^1.4.1
     tough-cookie: ^4.1.4
     undici: five
-  checksum: c53d0e3366eea7a9e9b0461fe6b454423fa8d2389a6b427e9cea93b9fbad2508d312588a609d47afbe2b0de72568e59b4e41274883f7f584cc9e2ba0eb9852da
+  checksum: 96359a4ae4e19be952d30494cb73d90487599b97d3ec19af8035e638a0fca834ff8c6e513ceaf262db98e515fac6500ab9132629533178e973bcf23a99d60dfd
   languageName: node
   linkType: hard
 
@@ -1098,12 +1099,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"agent-base@npm:^7.1.1":
-  version: 7.1.1
-  resolution: "agent-base@npm:7.1.1"
-  dependencies:
-    debug: ^4.3.4
-  checksum: 51c158769c5c051482f9ca2e6e1ec085ac72b5a418a9b31b4e82fe6c0a6699adb94c1c42d246699a587b3335215037091c79e0de512c516f73b6ea844202f037
+"agent-base@npm:^7.1.2, agent-base@npm:^7.1.3":
+  version: 7.1.3
+  resolution: "agent-base@npm:7.1.3"
+  checksum: 87bb7ee54f5ecf0ccbfcba0b07473885c43ecd76cb29a8db17d6137a19d9f9cd443a2a7c5fd8a3f24d58ad8145f9eb49116344a66b107e1aeab82cf2383f4753
   languageName: node
   linkType: hard
 
@@ -1250,7 +1249,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ariaa@workspace:."
   dependencies:
-    "@distube/ytdl-core": ^4.14.4
+    "@distube/ytdl-core": ^4.15.3
     "@favware/cliff-jumper": 3.0.3
     "@favware/npm-deprecate": 1.0.7
     "@ffmpeg-installer/ffmpeg": ^1.1.0
@@ -2742,18 +2741,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-cookie-agent@npm:^6.0.5":
-  version: 6.0.6
-  resolution: "http-cookie-agent@npm:6.0.6"
+"http-cookie-agent@npm:^6.0.8":
+  version: 6.0.8
+  resolution: "http-cookie-agent@npm:6.0.8"
   dependencies:
-    agent-base: ^7.1.1
+    agent-base: ^7.1.3
   peerDependencies:
     tough-cookie: ^4.0.0 || ^5.0.0
     undici: ^5.11.0 || ^6.0.0
   peerDependenciesMeta:
     undici:
       optional: true
-  checksum: 57314b3f03c312a9a1e8a4b00fb6834daa1c06bd893ae5b416bd58e8826d8bf2568b4ed72ead2817b0981349cbcb3e668e5d43c6da840704e311d5b7c00499c4
+  checksum: aa0c3133f5c8c19f1535ffd16a3681efd6f28d026226369559c85f2e9ac79ff8cdfe9a232fd72bb47bd08b619de9f9588708df43e3f104c38890af1cc7f4a5db
   languageName: node
   linkType: hard
 
@@ -2775,6 +2774,16 @@ __metadata:
     agent-base: 6
     debug: 4
   checksum: 571fccdf38184f05943e12d37d6ce38197becdd69e58d03f43637f7fa1269cf303a7d228aa27e5b27bbd3af8f09fd938e1c91dcfefff2df7ba77c20ed8dfc765
+  languageName: node
+  linkType: hard
+
+"https-proxy-agent@npm:^7.0.6":
+  version: 7.0.6
+  resolution: "https-proxy-agent@npm:7.0.6"
+  dependencies:
+    agent-base: ^7.1.2
+    debug: 4
+  checksum: b882377a120aa0544846172e5db021fa8afbf83fea2a897d397bd2ddd8095ab268c24bc462f40a15f2a8c600bf4aa05ce52927f70038d4014e68aefecfa94e8d
   languageName: node
   linkType: hard
 

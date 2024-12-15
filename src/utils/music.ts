@@ -14,6 +14,9 @@ import { getConfig, musicPath } from './config.js';
 import { searchSpotify } from './spotify.js';
 import type { Readable } from 'node:stream';
 import { exec } from 'child_process';
+import { promisify } from 'node:util';
+
+const execAsync = promisify(exec);
 
 export async function search(song: string, provider: 'youtube'): Promise<Video[]>;
 export async function search(song: string, provider: 'spotify'): Promise<SpotifyTrack.Item[]>;
@@ -70,7 +73,7 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 		const coverStream = await (await request(coverUrl)).body.arrayBuffer();
 
 		tmpImg = join(tmpdir(), `${(Math.random() + 1).toString(36)}.jpg`);
-		await writeFile(tmpImg, Buffer.from(coverStream));
+		await writeFile(tmpImg, new Uint8Array(coverStream));
 	}
 
 	const tmpAudio = join(tmpdir(), `${(Math.random() + 1).toString(36)}.${overrideformat}`);
@@ -112,7 +115,7 @@ export async function save(song: Video, overrideformat?: 'mp3' | 'flac', metadat
 			'0:0',
 			'-map',
 			'1:0',
-			'-disposition:v',
+			'-disposition:v:0',
 			'attached_pic',
 			'-id3v2_version',
 			'3',
