@@ -12,9 +12,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@distube/ytdl-core@npm:^4.15.3":
-  version: 4.15.3
-  resolution: "@distube/ytdl-core@npm:4.15.3"
+"@distube/ytdl-core@npm:^4.15.4":
+  version: 4.15.4
+  resolution: "@distube/ytdl-core@npm:4.15.4"
   dependencies:
     http-cookie-agent: ^6.0.8
     https-proxy-agent: ^7.0.6
@@ -23,7 +23,7 @@ __metadata:
     sax: ^1.4.1
     tough-cookie: ^4.1.4
     undici: five
-  checksum: 96359a4ae4e19be952d30494cb73d90487599b97d3ec19af8035e638a0fca834ff8c6e513ceaf262db98e515fac6500ab9132629533178e973bcf23a99d60dfd
+  checksum: 97464bda6e83e69c5190cb166d3fea5c4e9ca8da27e1eecc2c5d5fbb7ff858f8fdba7ca3b139735c8115516ca2a609182a0fdd1fbdbaa8fa474ed112cdf15b76
   languageName: node
   linkType: hard
 
@@ -1249,7 +1249,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ariaa@workspace:."
   dependencies:
-    "@distube/ytdl-core": ^4.15.3
+    "@distube/ytdl-core": ^4.15.4
     "@favware/cliff-jumper": 3.0.3
     "@favware/npm-deprecate": 1.0.7
     "@ffmpeg-installer/ffmpeg": ^1.1.0
